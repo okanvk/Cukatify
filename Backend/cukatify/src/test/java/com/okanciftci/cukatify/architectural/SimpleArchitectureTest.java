@@ -21,7 +21,7 @@ public class SimpleArchitectureTest {
     @ArchTest
     static final ArchRule LAYER_RULES = layeredArchitecture()
             .layer("Controller").definedBy(simpleNameEndingWith("Controller"))
-            .layer("Service").definedBy(simpleNameEndingWith("Service"))
+            .layer("Service").definedBy(simpleNameEndingWith("Service").or(simpleNameEndingWith("ServiceImpl")))
             .layer("Persistence").definedBy(simpleNameEndingWith("Repository"))
 
             .whereLayer("Controller").mayNotBeAccessedByAnyLayer()

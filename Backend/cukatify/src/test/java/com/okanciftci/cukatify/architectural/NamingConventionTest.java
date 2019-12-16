@@ -15,7 +15,7 @@ public class NamingConventionTest {
             classes()
                     .that().resideInAPackage("..services..")
                     .and().areAnnotatedWith(Service.class)
-                    .should().haveSimpleNameStartingWith("Service").orShould().haveSimpleNameEndingWith("ServiceImpl");
+                    .should().haveSimpleNameEndingWith("Service").orShould().haveSimpleNameEndingWith("ServiceImpl");
 
     @ArchTest
     static ArchRule controllers_should_not_have_Gui_in_name =
