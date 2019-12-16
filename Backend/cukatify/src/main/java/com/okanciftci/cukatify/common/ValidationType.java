@@ -3,7 +3,7 @@ package com.okanciftci.cukatify.common;
 public enum ValidationType {
     SELECT		(0),
     INSERT		(1),
-    UPDATE	(2),
+    UPDATE	    (2),
     DELETE		(3);
 
     private int value;

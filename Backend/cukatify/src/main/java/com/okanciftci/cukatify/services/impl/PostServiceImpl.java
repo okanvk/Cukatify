@@ -1,4 +1,4 @@
-package com.okanciftci.cukatify.services;
+package com.okanciftci.cukatify.services.impl;
 
 import com.okanciftci.cukatify.entities.Post;
 import com.okanciftci.cukatify.persistence.PostRepository;
