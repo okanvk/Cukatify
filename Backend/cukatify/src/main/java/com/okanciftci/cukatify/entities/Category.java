@@ -1,53 +1,38 @@
 package com.okanciftci.cukatify.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import java.util.List;
 
 @Document("Category")
+@Getter
+@Setter
 public class Category {
 
     @Id
-    public String id;
+    private String id;
 
-    public String name;
+    private String name;
 
     @DBRef
+    @Indexed // Indeksliyoruz Select durumu hızlı çalışırken diğer operasyonlar daha yavaş ama
+    @JsonIgnoreProperties("category")
     private List<Post> posts;
 
-    public Category() {}
-
     public Category(String name) {
-        this.name = name;
-
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+        super();
         this.name = name;
     }
 
-    public List<Post> getPosts() {
-        return posts;
-    }
 
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
 }

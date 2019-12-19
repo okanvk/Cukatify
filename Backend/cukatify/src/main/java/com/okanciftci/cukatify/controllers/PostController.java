@@ -5,10 +5,7 @@ import com.okanciftci.cukatify.common.ResponsePayload;
 import com.okanciftci.cukatify.entities.Post;
 import com.okanciftci.cukatify.services.abstr.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,16 @@ public class PostController {
             return new ResponsePayload(ResponseEnum.OK,posts);
 
     }
+
+    @RequestMapping(value = "/findByCategoryId/{id}", method = RequestMethod.GET)
+    public ResponsePayload bringPostsByCategoryId(@PathVariable String id) {
+
+        List<Post> posts = postService.takeAllPostsByCategory(id);
+
+        return new ResponsePayload(ResponseEnum.OK,posts);
+    }
+
+
 
 
 }

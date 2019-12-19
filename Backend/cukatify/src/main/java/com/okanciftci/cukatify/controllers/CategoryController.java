@@ -7,10 +7,7 @@ import com.okanciftci.cukatify.entities.Post;
 import com.okanciftci.cukatify.services.abstr.CategoryService;
 import com.okanciftci.cukatify.services.abstr.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,14 @@ public class CategoryController {
         return new ResponsePayload(ResponseEnum.OK,posts);
 
     }
+
+    @RequestMapping(value = "/findCategory/{id}", method = RequestMethod.GET)
+    public ResponsePayload bringCategoryById (@PathVariable String id) {
+        Category category = categoryService.findCategoryById(id);
+        return new ResponsePayload(ResponseEnum.OK,category);
+
+    }
+
 
 
 }

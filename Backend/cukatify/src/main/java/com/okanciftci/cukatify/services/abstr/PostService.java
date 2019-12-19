@@ -8,4 +8,6 @@ public interface PostService {
 
     List<Post> takeAllPosts();
 
+    List<Post> takeAllPostsByCategory(String id);
+
 }
