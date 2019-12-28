@@ -1,6 +1,6 @@
 package com.okanciftci.cukatify.services.abstr;
 
-import com.okanciftci.cukatify.entities.Category;
+import com.okanciftci.cukatify.entities.mongo.Category;
 
 import java.util.List;
 

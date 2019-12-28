@@ -1,11 +1,9 @@
 package com.okanciftci.cukatify.services.impl;
 
-import com.okanciftci.cukatify.entities.Category;
-import com.okanciftci.cukatify.persistence.CategoryRepository;
+import com.okanciftci.cukatify.entities.mongo.Category;
+import com.okanciftci.cukatify.persistence.mongo.CategoryRepository;
 import com.okanciftci.cukatify.services.abstr.CategoryService;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

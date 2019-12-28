@@ -1,6 +1,6 @@
-package com.okanciftci.cukatify.persistence;
+package com.okanciftci.cukatify.persistence.mongo;
 
-import com.okanciftci.cukatify.entities.Category;
+import com.okanciftci.cukatify.entities.mongo.Category;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;

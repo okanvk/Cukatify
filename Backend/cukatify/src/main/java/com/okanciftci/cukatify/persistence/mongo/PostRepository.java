@@ -1,7 +1,6 @@
-package com.okanciftci.cukatify.persistence;
+package com.okanciftci.cukatify.persistence.mongo;
 
-import com.okanciftci.cukatify.entities.Category;
-import com.okanciftci.cukatify.entities.Post;
+import com.okanciftci.cukatify.entities.mongo.Post;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -12,5 +11,11 @@ public interface PostRepository extends MongoRepository<Post, String> {
 
     @Query("{'category.id' : ?0}")
     Collection<Post> findByCategoryId(String id);
+
+
+
+    List<Post> findByApprovedIsTrue();
+
+    List<Post> findByisApprovedIsTrue();
 
 }

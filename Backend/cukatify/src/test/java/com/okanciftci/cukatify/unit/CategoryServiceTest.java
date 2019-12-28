@@ -1,29 +1,26 @@
 package com.okanciftci.cukatify.unit;
 
-import com.okanciftci.cukatify.entities.Category;
+import com.okanciftci.cukatify.entities.mongo.Category;
 
-import com.okanciftci.cukatify.persistence.CategoryRepository;
+import com.okanciftci.cukatify.persistence.mongo.CategoryRepository;
 import com.okanciftci.cukatify.services.abstr.CategoryService;
-import com.okanciftci.cukatify.services.impl.CategoryServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 
+@DataMongoTest
 public class CategoryServiceTest {
-/*
+
 
     @Autowired
     private CategoryService categoryService;
@@ -50,6 +47,6 @@ public class CategoryServiceTest {
 
 
     }
-*/
+
 }
 

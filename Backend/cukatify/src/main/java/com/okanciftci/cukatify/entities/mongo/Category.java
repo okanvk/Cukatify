@@ -1,4 +1,4 @@
-package com.okanciftci.cukatify.entities;
+package com.okanciftci.cukatify.entities.mongo;
 
 
 

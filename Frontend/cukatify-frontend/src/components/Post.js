@@ -1,23 +1,35 @@
 
 import React, { Component } from 'react'
+import StarList from "./StarList"
+import {Link} from 'react-router-dom';
 
 class Post extends Component {
 
+    viewPost = (id) => {
+        console.log(id);
+    }
+
     render() {
+
+        const { id,description, title, createdAt,category,rating } = this.props.post
+
         return (
-                <div className="item">
-                    <div className="ui small image"><img alt = "." src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg" /></div>
-                    <div className="content">
-                        <a href = "/" className="header">Cute Dog</a>
-                        <div className="description">
-                            <p>
-                                Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their
-                                adorable faces, others for their tiny stature, and even others for their massive size.
-                            </p>
-                            <p>Many people also have their own barometers for what makes a cute dog.</p>
-                        </div>
+            <div className="item">
+                <div className="ui small image"><img alt="." src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg" /></div>
+                <div className="content">
+                    <div  className="ui medium header">{title}</div>
+                    <div className="description">
+                        <p>
+                            {description}
+                        </p>
+                        <div className="meta"><span className="date">{createdAt}</span></div>
+                        <div className="meta"><span className="text">Category : {category.name}</span></div>
+                        <Link to = {`/post/${id}`} className="ui primary basic button right floated">View Post</Link>
+                        <StarList rating = {rating} />
                     </div>
+
                 </div>
+            </div>
         )
     }
 

@@ -1,0 +1,21 @@
+
+  nav > ul {
+    padding-left:0;
+  }
+  
+  nav > ul > li {
+    display:inline-block;
+   margin-right:10px;
+  }
+  
+  nav > ul > li > a.active {
+    color:white;
+  }
+
+  nav > ul > li > a {
+    color: slategrey;
+  }
+  
+.active-link {
+  color:white;
+}

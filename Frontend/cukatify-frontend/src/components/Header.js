@@ -1,39 +1,43 @@
 import React, { Component } from "react";
 
-import SearchBar from './SearchBar'
+import SearchBar from "./SearchBar";
+import {  NavLink } from "react-router-dom";
+import "./Header.css";
+import SpotifyAuth from "./auth/SpotifyOauth2/SpotifyAuth"
 
 class Header extends Component {
 
-    constructor(props){
-        super(props)
-        this.state = {activeItem : 'main'}
 
-    }
-
-    handleItemClick = (e) => {
-        const activeItem = e.target.value
-        this.setState({activeItem})
-    }
 
 
     render() {
-         
-         const activeMain = this.state.activeItem === "main" ? "active" : ""
-         const activeCukats = this.state.activeItem === "cukats" ? "active" : ""
-         console.log(activeMain,activeCukats,this.state)
+
         return (
             <div className="ui inverted segment">
                 <div className="ui inverted secondary pointing menu">
-                    <button value = "main" onClick = {this.handleItemClick} className={"item" + activeMain}>Main Page</button>
-                    <button value = "cukats" onClick = {this.handleItemClick} className={"item" + activeCukats}>Cukats</button>
+                    <nav>
+                        <ul>
+                            <li>
+                                <NavLink to="/" exact activeClassName="active-link">
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/pictures" exact activeClassName="active-link">Pictures</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/time" exact activeClassName="active-link">Time</NavLink>
+                            </li>
+                        </ul>
+                    </nav>
                     <div className="right menu">
-                        <div className="item">
-                            <div className="ui icon input">
-                                <SearchBar />
-                                <i aria-hidden="true" className="search icon"></i>
-                            </div>
+                    <div className="item">
+                            <SearchBar />
+                            <NavLink exact to="/login" className = "ui button" style = {{marginLeft: 25}}>
+                            Sign In
+                            </NavLink>
                         </div>
-                    </div>
+                </div>
                 </div>
             </div>
         );
