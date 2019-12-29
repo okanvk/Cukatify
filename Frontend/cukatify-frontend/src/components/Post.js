@@ -5,9 +5,7 @@ import {Link} from 'react-router-dom';
 
 class Post extends Component {
 
-    viewPost = (id) => {
-        console.log(id);
-    }
+
 
     render() {
 

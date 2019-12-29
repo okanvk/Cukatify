@@ -2,8 +2,8 @@ import React from 'react'
 
 const NotFound = () => {
     return (
-        <div class="ui error message center">
-        <i class="close icon"></i>
+        <div className="ui error message center">
+        <i className="close icon"></i>
             <div className="header">
                 There were some errors
             </div>

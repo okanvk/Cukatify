@@ -3,7 +3,12 @@ import {GET_POSTS, GET_SELECTED_POST} from '../actions/types'
 
 const initialState = {
     posts: [],
-    selectedPost: {}
+    selectedPost: {
+        rating : 0,
+        category : {
+            name : "Noname"
+        }
+    }
   };
   
 
@@ -16,7 +21,6 @@ export default (state = initialState,action) => {
                 posts : [...action.payload]
             };
         case GET_SELECTED_POST:
-            console.log(1)
             return {
                 ...state,
                 selectedPost : action.payload

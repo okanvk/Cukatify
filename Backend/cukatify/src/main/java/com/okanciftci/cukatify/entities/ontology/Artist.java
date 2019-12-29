@@ -8,19 +8,25 @@ import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
 
-@RedisHash("Actor")
+@RedisHash("Artist")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Actor implements Serializable {
+public class Artist implements Serializable {
 
 
     @Id
     private String id;
     private String name;
+    private String page;
+    private String description;
+    private String imageUrl;
 
-    public Actor(String id, String name) {
+    public Artist(String id, String name, String page,String description,String imageUrl) {
         this.id = id;
         this.name = name;
+        this.page = page;
+        this.description = description;
+        this.imageUrl = imageUrl;
     }
 }

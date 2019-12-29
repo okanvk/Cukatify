@@ -19,8 +19,19 @@ class SearchBar extends Component {
     formSubmit = (e) => {
         e.preventDefault();
 
-        this.props.history.push(`/resource/${this.state.keyword}`);
+        if(!this.state.keyword)
+            return;
+
+        const artistName =  this.mapArtistNameToResourceName(this.state.keyword)
+
+
+        this.setState({keyword : ""})
+        this.props.history.push(`/ArtistView/${artistName}`);
     } 
+
+    mapArtistNameToResourceName = (artistName) => {
+        return artistName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('_')
+    }
 
 
     render() {
@@ -28,7 +39,7 @@ class SearchBar extends Component {
             <form onSubmit = {this.formSubmit} style = {{marginRight :75}} className="ui form">
                 <div className="ui action input">
                     <input type="text" value = {this.state.keyword} onChange = {this.setWord} placeholder = "Search Artist,Group" />
-                    <NavLink exact className = "ui button" to = {`/resource/${this.state.keyword}`}>Search</NavLink>
+                    <NavLink exact className = "ui button" to = {`/ArtistView/${this.mapArtistNameToResourceName(this.state.keyword)}`}>Search</NavLink>
                 </div>
             </form>
         )

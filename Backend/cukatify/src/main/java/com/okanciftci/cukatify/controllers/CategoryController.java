@@ -3,8 +3,6 @@ package com.okanciftci.cukatify.controllers;
 import com.okanciftci.cukatify.common.ResponseEnum;
 import com.okanciftci.cukatify.common.ResponsePayload;
 import com.okanciftci.cukatify.entities.mongo.Category;
-import com.okanciftci.cukatify.entities.ontology.Actor;
-import com.okanciftci.cukatify.persistence.ontology.ActorRepository;
 import com.okanciftci.cukatify.services.abstr.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +16,8 @@ public class CategoryController {
 
 
     @Autowired
-    private ActorRepository actorRepository;
-
-    @Autowired
     private CategoryService categoryService;
+
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ResponsePayload bringCategories () {
@@ -37,16 +33,6 @@ public class CategoryController {
 
     }
 
-    @RequestMapping(value = "/saveData",method = RequestMethod.POST)
-    public ResponsePayload saveData(@RequestBody Actor actor){
-        actorRepository.save(actor);
-        return new ResponsePayload(ResponseEnum.OK);
-    }
-
-    @RequestMapping(value = "/takeData/{id}",method = RequestMethod.POST)
-    public ResponsePayload takeData(@PathVariable String id){
-        return new ResponsePayload(ResponseEnum.OK,actorRepository.findById(id));
-    }
 
 
 
