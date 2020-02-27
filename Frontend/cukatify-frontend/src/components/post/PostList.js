@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Post from './Post'
 
 import {connect} from 'react-redux'
-import {getPosts} from '../actions/postActions'
+import {getPosts} from '../../actions/postActions'
 
 
 class PostList extends Component {

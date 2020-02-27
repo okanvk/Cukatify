@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import SearchBar from "./SearchBar";
 import {  NavLink } from "react-router-dom";
 import "./Header.css";
-import SpotifyAuth from "./auth/SpotifyOauth2/SpotifyAuth"
 
 class Header extends Component {
 

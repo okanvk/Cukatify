@@ -1,6 +1,6 @@
 
 import springapi from '../api/springapi'
-import {GET_POSTS,GET_SELECTED_POST} from '../actions/types'
+import {GET_POSTS,GET_SELECTED_POST, SAVE_POST} from '../actions/types'
 
 export const getPosts = () => 
       async (dispatch) => {
@@ -17,5 +17,19 @@ export const getSelectedPost = (id) =>
           type : GET_SELECTED_POST,
           payload : response.data.data
       })
+  }
+export const savePost = (formData) =>
+  async (dispatch) => {
+      const config = {
+          headers: {
+              'content-type': 'multipart/form-data'
+          }
+      }
+      
+      const response = await springapi.post('post/save',formData,config)
+      dispatch({
+        type : SAVE_POST,
+        payload : response.data.data
+    })
   }
 

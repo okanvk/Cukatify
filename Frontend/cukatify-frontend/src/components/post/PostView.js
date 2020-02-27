@@ -2,9 +2,10 @@
 import React, { Component } from 'react'
 
 import {connect} from 'react-redux'
-import {getSelectedPost} from '../actions/postActions'
+import {getSelectedPost} from '../../actions/postActions'
 import { Redirect } from 'react-router-dom';
-import StarList from "./StarList"
+import StarList from "../star/StarList"
+
 
 class PostView extends Component {
 

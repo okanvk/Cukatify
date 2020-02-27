@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getArtist } from '../actions/artistActions'
-import { Redirect } from 'react-router-dom';
+import { getArtist } from '../../actions/artistActions'
+
 
 
 class ArtistView extends Component {
 
     componentDidMount() {
         const artistName = this.props.match.params.name
+        this.props.getArtist(artistName);
+    }
+
+    findRelated = (artistUrl) => {
+        const artistName = artistUrl.split('/')[4]
         this.props.getArtist(artistName);
     }
 
@@ -18,6 +23,16 @@ class ArtistView extends Component {
         }
       }
 
+    renderRelatedThings = (things) => {
+        return things.map(t => {
+            return (
+                <div>
+                <button onClick={() => this.findRelated(t.url)} key = {t.name} className="item">{t.name}</button>
+            </div> 
+            )
+        })
+    } 
+
     render() {
         if(!this.props.artist){
             return(
@@ -26,15 +41,15 @@ class ArtistView extends Component {
                 <div className="header">
                     There were some errors
                 </div>
-                <ul className="list">
+                <div className="list">
                     <li>This isn't the web page you are looking for.</li>
-                </ul>
+                </div>
             </div>
             )
         }
-        const { page, name, description,imageUrl } = this.props.artist;
+        const { page, name, description,imageUrl,relatedThingList } = this.props.artist;
         return (
-            <div className="ui items">
+            <div>
             <div className="image">
                 <img src={imageUrl} alt = "." />
             </div>
@@ -52,10 +67,15 @@ class ArtistView extends Component {
                        </div>
                     </div>
                 </div>
+            <div className = "ui list">
+            {relatedThingList.length !== 0 ? this.renderRelatedThings(relatedThingList) : <div>
+                    -
+                </div>}
+            </div>
+            
             </div>
         )
     }
-
 }
 
 const mapStateToProps = ({ artistState }) => {

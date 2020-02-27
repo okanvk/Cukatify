@@ -2,7 +2,9 @@
 import {GET_ARTIST} from '../actions/types' 
 
 const initialState = {
-    artist: {}
+    artist: {
+        relatedThingList : []
+    }
   };
   
 

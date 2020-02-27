@@ -14,11 +14,12 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.UUID;
 
 @Document("Post")
 @Getter
 @Setter
-
 public class Post {
 
     @Id
@@ -39,6 +40,8 @@ public class Post {
 
     private boolean isApproved;
 
+    private String fileName;
+
     @DBRef
     @JsonIgnoreProperties("posts")
     private Category category;
@@ -51,6 +54,15 @@ public class Post {
         this.isApproved = isApproved;
         this.category = category;
         this.title = title;
+    }
+
+    public Post() {
+        this.id = UUID.randomUUID().toString();
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public void addCategory(Category category){
+        this.setCategory(category);
     }
 
 

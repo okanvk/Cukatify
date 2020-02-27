@@ -6,7 +6,7 @@ export const getArtist = (artistName) =>
         const response = await springapi.get(`/artist/findArtistByName/${artistName}`)
         dispatch({
             type : GET_ARTIST,
-            payload : response.data.data
+            payload : response.data
         })
     }
 

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import StarList from "./StarList"
+import StarList from "../star/StarList"
 import {Link} from 'react-router-dom';
 
 class Post extends Component {

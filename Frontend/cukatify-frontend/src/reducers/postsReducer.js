@@ -1,5 +1,5 @@
 
-import {GET_POSTS, GET_SELECTED_POST} from '../actions/types' 
+import {GET_POSTS, GET_SELECTED_POST,SAVE_POST} from '../actions/types' 
 
 const initialState = {
     posts: [],
@@ -8,7 +8,8 @@ const initialState = {
         category : {
             name : "Noname"
         }
-    }
+    },
+    savedPost : {}
   };
   
 
@@ -24,6 +25,11 @@ export default (state = initialState,action) => {
             return {
                 ...state,
                 selectedPost : action.payload
+            };
+        case SAVE_POST:
+            return {
+                ...state,
+                savedPost : action.payload
             };
         default:
             return state;
