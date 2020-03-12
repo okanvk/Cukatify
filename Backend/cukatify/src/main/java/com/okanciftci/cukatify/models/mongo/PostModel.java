@@ -7,6 +7,8 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.core.io.Resource;
+
 
 import java.time.LocalDateTime;
 
@@ -34,6 +36,8 @@ public class PostModel {
     private CategoryModel categoryModel;
 
     private String fileName;
+
+    private Resource resource;
 
 
 

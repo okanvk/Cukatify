@@ -9,7 +9,9 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.okanciftci.cukatify.entities.mongo.Category;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.core.io.Resource;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -41,6 +43,7 @@ public class Post {
     private boolean isApproved;
 
     private String fileName;
+
 
     @DBRef
     @JsonIgnoreProperties("posts")

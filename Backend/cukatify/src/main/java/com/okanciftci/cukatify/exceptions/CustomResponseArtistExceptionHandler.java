@@ -24,4 +24,10 @@ public class CustomResponseArtistExceptionHandler extends ResponseEntityExceptio
         FileStorageResponse exceptionResponse = new FileStorageResponse(ex.getMessage());
         return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler
+    public  final ResponseEntity<Object> handleUsernameAlreadyExists(UsernameAlreadyExistsException ex,WebRequest request){
+        UsernameAlreadyExistsResponse response = new UsernameAlreadyExistsResponse(ex.getMessage());
+        return new ResponseEntity(response,HttpStatus.BAD_REQUEST);
+    }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/artist")
+@RequestMapping("/artists")
 public class ArtistController {
 
     @Autowired
