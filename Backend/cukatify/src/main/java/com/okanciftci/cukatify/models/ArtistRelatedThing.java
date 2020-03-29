@@ -12,10 +12,13 @@ public class ArtistRelatedThing {
 
     private String name;
     private String url;
+    private String image;
+    private String resource;
 
-    public ArtistRelatedThing(String name,String url){
+    public ArtistRelatedThing(String name,String url,String resource){
         this.name = name;
         this.url = url;
+        this.resource = resource;
     }
 
     @Override

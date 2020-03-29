@@ -1,5 +1,5 @@
 import springapi from '../api/springapi'
-import {GET_ARTIST} from '../actions/types'
+import {GET_ARTIST,SET_CURRENT_USER} from '../actions/types'
 
 export const getArtist = (artistName,history) => 
       async (dispatch) => {
@@ -12,12 +12,9 @@ export const getArtist = (artistName,history) =>
             })}
         }catch(err){
             dispatch({
-                type : GET_ARTIST,
-                payload : {
-                    relatedThingList : []
-                }
-            })
-            history.push("/login")
+                type: SET_CURRENT_USER,
+                payload: {}
+              });
         }
     }
 

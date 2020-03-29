@@ -4,6 +4,7 @@ import { getArtist } from '../../actions/artistActions'
 
 
 
+
 class ArtistView extends Component {
 
     componentDidMount() {
@@ -25,12 +26,19 @@ class ArtistView extends Component {
 
     renderRelatedThings = (things) => {
         return things.map(t => {
+            if(t.image === null){
+                t.image = "https://scontent.fbtz1-5.fna.fbcdn.net/v/t1.0-9/22490000_139070100050194_8080531935287282476_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=XR_X2TUeMLMAX-kpIqP&_nc_ht=scontent.fbtz1-5.fna&oh=0d79df2bd87395b6fb31806bcbb843bf&oe=5EA37843"
+            }
             return (
                 <div key = {t.url}>
+                <div className="image">
+                <img src={t.image} alt = "." style = {{width : 250, height : 300}} />
+                </div>
                 <button onClick={() => this.findRelated(t.url)}  className="item">{t.name}</button>
             </div> 
             )
         })
+
     } 
 
     render() {

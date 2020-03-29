@@ -10,6 +10,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -37,6 +39,9 @@ public class User implements UserDetails {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDateTime created_At;
+
+    @DBRef(lazy = true)
+    private List<Role> role_ids;
 
     public User() {
         this.created_At = LocalDateTime.now();
