@@ -1,6 +1,7 @@
 package com.okanciftci.cukatify.security.jwt;
 
 
+import com.okanciftci.cukatify.entities.mongo.User;
 import io.jsonwebtoken.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -47,6 +48,7 @@ public class JwtTokenProvider implements Serializable {
     }
 
     public String generateToken(Authentication authentication) {
+
         final String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));

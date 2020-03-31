@@ -5,6 +5,7 @@ import artistReducer from './artistReducer'
 import {reducer as formReducer} from "redux-form";
 import categoryReducer from './categoryReducer'
 import securityReducer from './securityReducer'
+import recommenderReducer from './recommenderReducer'
 
 
 export default combineReducers({
@@ -13,4 +14,5 @@ export default combineReducers({
     form : formReducer,
     categoryState: categoryReducer,
     security: securityReducer,
+    recommenderState : recommenderReducer,
 });

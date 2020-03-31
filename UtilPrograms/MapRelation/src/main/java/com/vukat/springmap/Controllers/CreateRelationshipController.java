@@ -23,10 +23,10 @@ public class CreateRelationshipController {
 
     }
 
-    @RequestMapping(value = "/createRatings/{type}", method = RequestMethod.GET)
-    public ResponseEntity<?> createRatings (@PathVariable int type) {
+    @RequestMapping(value = "/createRatings", method = RequestMethod.GET)
+    public ResponseEntity<?> createRatings () {
 
-        rsService.createRatings(type);
+        rsService.createRatings2();
         return new ResponseEntity(null, HttpStatus.OK);
 
     }

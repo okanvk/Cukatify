@@ -159,4 +159,149 @@ public class RsServiceImpl implements RsService{
 
         }
     }
+
+    @Override
+    public void createRatings2() {
+
+        List<User> users = userRepository.findAll();
+
+        List<Post> allPosts = postRepository.findAll();
+
+        Random r2 = new Random();
+
+        r2.setSeed(12);
+
+        Collections.shuffle(allPosts,r2);
+
+        Collections.shuffle(users,r2);
+
+        List<Rating> ratings = new ArrayList<>();
+
+
+        Random r = new Random();
+        r.setSeed(537);
+
+        int i = 0;
+        while(i < 50000){
+
+
+
+
+            int userIndex = r.nextInt(users.size());
+            int postIndex = r.nextInt(allPosts.size());
+
+            User user = users.get(userIndex);
+
+            Post post = allPosts.get(postIndex);
+
+            Rating rating = createRating(post,user);
+
+            if(user.getType() == 0){
+               //Pop
+                if(post.getCategory().getId().equals("5df787463b36bc3748631a8a")){
+
+                    int low = 4;
+                    int high = 6;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }else if (post.getCategory().getId().equals("5df787413b36bc3748631a89")){
+
+                    int low = 1;
+                    int high = 4;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }else {
+                    int low = 1;
+                    int high = 4;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }
+
+
+
+            }else if(user.getType() == 1){
+                //Rock
+                if(post.getCategory().getId().equals("5df787463b36bc3748631a8a")){
+
+                    int low = 1;
+                    int high = 4;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }else if (post.getCategory().getId().equals("5df787413b36bc3748631a89")){
+
+                    int low = 4;
+                    int high = 6;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }else {
+                    int low = 1;
+                    int high = 4;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }
+
+
+            }else{
+                //Classic
+                if(post.getCategory().getId().equals("5df787463b36bc3748631a8a")){
+
+                    int low = 1;
+                    int high = 4;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }else if (post.getCategory().getId().equals("5df787413b36bc3748631a89")){
+
+                    int low = 1;
+                    int high = 4;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }else {
+
+                    int low = 4;
+                    int high = 6;
+                    int result = r.nextInt(high-low) + low;
+                    rating.setRating(result);
+
+
+                }
+
+
+
+            }
+
+            List<Rating> another = ratings.stream().filter(rating1 -> rating1.equals(rating)).collect(Collectors.toList());
+            if(another.size() > 0){
+                continue;
+            }
+            else {
+                ratings.add(rating);
+                i++;
+                ratingRepository.save(rating);
+            }
+
+            if(i > 50000){
+                break;
+            }
+
+
+        }
+
+
+    }
 }

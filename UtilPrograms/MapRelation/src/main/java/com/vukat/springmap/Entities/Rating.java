@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.Objects;
 
 @Document("Rating")
 @Getter
@@ -25,5 +26,15 @@ public class Rating {
 
     private int rating;
 
+
+    @Override
+    public boolean equals(Object o) {
+        Rating other = (Rating) o;
+
+        if(other.getUserId() == this.getUserId() && other.getPostId() == this.getPostId()){
+            return true;
+        }
+        return  false;
+    }
 
 }

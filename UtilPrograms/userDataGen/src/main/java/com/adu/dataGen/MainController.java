@@ -33,7 +33,7 @@ public class MainController {
 
     @GetMapping("/")
     public ResponseEntity<?> saveUsers(){
-        for (int i = 0; i < 225; i++) {
+        for (int i = 0; i < 75; i++) {
 
             User user = new User();
 
@@ -53,10 +53,10 @@ public class MainController {
 
             user.addRole(user_role);
 
-            if(i < 75){
+            if(i < 25){
                 user.setType(0);
             }
-            else if(i < 150){
+            else if(i < 50){
                 user.setType(1);
             }else{
                 user.setType(2);

@@ -6,4 +6,6 @@ public interface RsService {
 
     void createRsByCategory(String id);
 
+    void createRatings2();
+
 }

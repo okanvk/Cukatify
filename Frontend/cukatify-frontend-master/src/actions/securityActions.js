@@ -1,5 +1,6 @@
 
 import springapi from '../api/springapi'
+import postrecapi from '../api/postrecapi'
 import { SET_CURRENT_USER, GET_USER } from "../actions/types";
 import jwt_decode from "jwt-decode";
 
@@ -60,8 +61,10 @@ export const login = (LoginRequest,history) => async dispatch => {
 export const setJWTToken = token => {
   if (token) {
     springapi.defaults.headers.common["Authorization"] = token;
+    postrecapi.defaults.headers.common["Authorization"] = token;
   } else {
     delete springapi.defaults.headers.common["Authorization"];
+    delete postrecapi.defaults.headers.common["Authorization"];
   }
 };
 
