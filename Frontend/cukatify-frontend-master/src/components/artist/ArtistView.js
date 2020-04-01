@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getArtist } from '../../actions/artistActions'
-
+import NotFound from "../../artist_not_found.jpeg"
 
 
 
@@ -27,14 +27,14 @@ class ArtistView extends Component {
     renderRelatedThings = (things) => {
         return things.map(t => {
             if(t.image === null){
-                t.image = "https://scontent.fbtz1-5.fna.fbcdn.net/v/t1.0-9/22490000_139070100050194_8080531935287282476_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=XR_X2TUeMLMAX-kpIqP&_nc_ht=scontent.fbtz1-5.fna&oh=0d79df2bd87395b6fb31806bcbb843bf&oe=5EA37843"
+                t.image = NotFound
             }
             return (
-                <div key = {t.url}>
+                <div itemsScope itemType = "http://dbpedia.org/ontology/associatedMusicalArtist" key = {t.url}>
                 <div className="image">
-                <img src={t.image} alt = "." style = {{width : 250, height : 300}} />
+                <img itemProp = "image" src={t.image} alt = "." style = {{width : 250, height : 300}} />
                 </div>
-                <button onClick={() => this.findRelated(t.url)}  className="item">{t.name}</button>
+                <button onClick={() => this.findRelated(t.url)} itemProp = "name"  className="item">{t.name}</button>
             </div> 
             )
         })
@@ -58,29 +58,30 @@ class ArtistView extends Component {
         const { page, name, description,imageUrl,relatedThingList } = this.props.artist;
         return (
             <div>
+            <div itemScope itemType = "http://dbpedia.org/ontology/Band">
             <div className="image">
-                <img src={imageUrl} alt = "." />
+                <img itemProp = "image" src={imageUrl} alt = "." />
             </div>
                 <div className="item">
                     <div className="content">
-                        <h4 className="header">{name}</h4>
+                        <h4 className="header" itemProp = "name">{name}</h4>
                         <div className="meta">
                             <span>Description</span>
                         </div>
                         <div className="description">
-                            <p>{description}</p>
+                            <p itemProp = "description">{description}</p>
                         </div>
                         <div className="extra">
-                            <a href = {page}>Page</a>
+                            <a itemProp = "page" href = {page} target="_blank">Page</a>
                        </div>
                     </div>
                 </div>
+            </div>
             <div className = "ui list">
             {relatedThingList.length !== 0 ? this.renderRelatedThings(relatedThingList) : <div>
                     -
                 </div>}
             </div>
-            
             </div>
         )
     }
