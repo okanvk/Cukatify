@@ -14,13 +14,14 @@ class SpotifyAPIAccess:
         return genres
 
     def find_user_most_listen_songs(self, token):
-        r = requests.get(f"https://api.spotify.com/v1/me/top/tracks", headers={"Authorization": f"Bearer {token}"});
+        r = requests.get(f"https://api.spotify.com/v1/me/top/tracks", params={"time_range" : "short_term"}, headers={"Authorization": f"Bearer {token}"});
 
         print(r.status_code)
         tracks = r.json()['items']
 
         tracks_list = []
         tracks_list_count = 0
+        max_track = 5
 
         for track in tracks:
             first_index = 0
@@ -42,12 +43,23 @@ class SpotifyAPIAccess:
             data['genres'] = " ".join(self.find_artist_genre(data_id, token))
 
             tracks_list_count += 1
-            tracks_list.append(data)
 
-            max_track = 5
+
+            duplicated = False
+            for track_in in tracks_list:
+                if data['artist_uri'] == track_in['artist_uri']:
+                    duplicated = True
+
+            if not duplicated:
+                tracks_list.append(data)
+            else:
+                continue
+
             if tracks_list_count > max_track:
+                print(tracks_list)
                 return tracks_list[:max_track]
 
+        print(tracks_list)
         return tracks_list
 
     def find_tracks_features(self, tracks, token):
@@ -97,7 +109,9 @@ class SpotifyAPIAccess:
     def get_most_songs_according_to_user(self, token):
 
         songs = self.find_user_most_listen_songs(token)
+
         featured_songs = self.find_tracks_features(songs,token)
+
         scaled_featured_songs = self.scale_audio_features(featured_songs)
 
         return scaled_featured_songs
@@ -107,16 +121,15 @@ class SpotifyAPIAccess:
         user_id = self.get_user_id(token)
 
         r = requests.post(f"https://api.spotify.com/v1/users/{user_id}/playlists",
-                         data=json.dumps({"name" : "Cukatify Recommender System Playlist","public":True,"description" : "Thanks for using Cukatify"}),
+                         data=json.dumps({"name" : "Cukatify Recommender System Playlist","public":False,"description" : "Thanks for using Cukatify"}),
                          headers={"Authorization": f"Bearer {token}"});
 
         playlist_id = r.json()['id']
-        uris = ",".join(track_uris)
+        uris = ",".join(track_uris[:55])
         r = requests.post(f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
                           params={"uris": uris},
                           headers={"Authorization": f"Bearer {token}"});
 
-        print(r.status_code)
 
 
 

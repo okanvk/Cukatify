@@ -59,10 +59,12 @@ class TrackRecommender:
             genre_label = int(track['genre_labels'])
             audio_label = int(track['audio_features_label'])
 
+            track_uris.append(track['track_uri'])
+
             related_tracks_by_genre = self.track_repository.find_by_genre_and_music_labels(genre_label, audio_label)
 
-            if len(related_tracks_by_genre) > 20:
-                related_tracks_by_genre = random.sample(related_tracks_by_genre, 20)
+            if len(related_tracks_by_genre) > 30:
+                related_tracks_by_genre = random.sample(related_tracks_by_genre, 30)
 
             cos_sim = []
 
@@ -70,7 +72,7 @@ class TrackRecommender:
 
             track_features = np.delete(track_features, 0)
 
-            for track in related_tracks_by_genre[:20]:
+            for track in related_tracks_by_genre:
                 candidate_track_musical_features = self.take_audio_features(track)
 
                 candidate_track_id = candidate_track_musical_features[0]
@@ -84,7 +86,12 @@ class TrackRecommender:
 
             cos_sim.sort(reverse=True)
 
-            for most_similar in cos_sim[:5]:
+            cos_sim_len = len(cos_sim)
+            if cos_sim_len > 10:
+                cos_sim_len = 10
+
+
+            for most_similar in cos_sim[:cos_sim_len]:
                 similarity, id = most_similar
 
                 selected_track = self.search_track_by_id(id, related_tracks_by_genre)
@@ -93,6 +100,6 @@ class TrackRecommender:
 
                 recommended_songs.append(selected_track)
 
-        self.spotify_api.create_playlist(token, set(track_uris))
+        self.spotify_api.create_playlist(token, list(set(track_uris)))
 
         return recommended_songs
