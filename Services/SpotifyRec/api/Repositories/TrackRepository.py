@@ -8,10 +8,18 @@ class TrackRepository:
         client = MongoClient('localhost', 27017)
         db = client.cukatify
         self.track_collection = db.Track
+        self.track_gecici = db.Gecici
 
 
     def save_multiple_tracks(self,tracks):
         self.track_collection.insertMany(tracks)
+
+    def save_multiple_tracks_gecici(self,tracks):
+        for track in tracks:
+            track['genre_labels'] = int(track['genre_labels'])
+            track['audio_features_label'] = int(track['audio_features_label'])
+
+            self.track_gecici.insert_one(track)
 
 
     def find_by_genre_and_music_labels(self,genre_label,audio_features_label):

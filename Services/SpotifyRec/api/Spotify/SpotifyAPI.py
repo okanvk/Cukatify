@@ -1,5 +1,5 @@
 import requests
-
+import json
 from api.ModelClasses.AudioFeaturesScaler import AudioFeaturesScaler
 
 
@@ -16,6 +16,7 @@ class SpotifyAPIAccess:
     def find_user_most_listen_songs(self, token):
         r = requests.get(f"https://api.spotify.com/v1/me/top/tracks", headers={"Authorization": f"Bearer {token}"});
 
+        print(r.status_code)
         tracks = r.json()['items']
 
         tracks_list = []
@@ -100,5 +101,32 @@ class SpotifyAPIAccess:
         scaled_featured_songs = self.scale_audio_features(featured_songs)
 
         return scaled_featured_songs
+
+    def create_playlist(self,token,track_uris):
+
+        user_id = self.get_user_id(token)
+
+        r = requests.post(f"https://api.spotify.com/v1/users/{user_id}/playlists",
+                         data=json.dumps({"name" : "Cukatify Recommender System Playlist","public":True,"description" : "Thanks for using Cukatify"}),
+                         headers={"Authorization": f"Bearer {token}"});
+
+        playlist_id = r.json()['id']
+        uris = ",".join(track_uris)
+        r = requests.post(f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
+                          params={"uris": uris},
+                          headers={"Authorization": f"Bearer {token}"});
+
+        print(r.status_code)
+
+
+
+    def get_user_id(self,token):
+        r = requests.get(f"https://api.spotify.com/v1/me",
+                         headers={"Authorization": f"Bearer {token}"});
+
+        return r.json()['id']
+
+
+
 
 
