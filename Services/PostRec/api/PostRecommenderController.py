@@ -16,7 +16,6 @@ rec_service = RecommenderService()
 def recommend():
     try:
         token = request.headers.get('Authorization')[7:]
-        print("1")
         username = decode_jwt(token)
 
         posts = rec_service.recommend_posts(username)
