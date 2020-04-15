@@ -16,6 +16,7 @@ class Routes extends Component {
     render() {
         return (
             <Switch>
+             
               <SecuredRoute exact path="/" component={PostList}></SecuredRoute>
               <SecuredRoute exact path="/post/add" component={PostAdd}></SecuredRoute>
               <Route exact path="/login" component={Login}></Route>

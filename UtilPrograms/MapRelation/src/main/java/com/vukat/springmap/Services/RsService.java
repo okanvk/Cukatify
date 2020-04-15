@@ -8,4 +8,6 @@ public interface RsService {
 
     void createRatings2();
 
+    void setRatings();
+
 }

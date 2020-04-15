@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 
 class UserPostDAO:
 
-        def __init__(self):
+    def __init__(self):
             client = MongoClient()
             client = MongoClient('localhost', 27017)
             db = client.cukatify

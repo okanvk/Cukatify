@@ -2,8 +2,9 @@ import React from 'react';
 
 const Star = (props) =>  {
   const checkFirst = props.nth === 1
+
   return (
-        <i style = { checkFirst ? {marginLeft : 5, marginRight : 3} : {marginRight : 3} }
+        <i style = { checkFirst ? {marginLeft : 5, marginRight : 3, marginTop : props.marginTop} : {marginRight : 3, marginTop : props.marginTop} }
         tabIndex="0"
         aria-checked="false"
         aria-posinset="1"

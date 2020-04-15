@@ -9,12 +9,8 @@ import java.util.List;
 
 public interface PostRepository extends MongoRepository<Post, String> {
 
-    @Query("{'category.id' : ?0}")
-    Collection<Post> findByCategoryId(String id);
-
-
-
-    List<Post> findByApprovedIsTrue();
+    @Query("{'category.id' : ?0, 'isApproved' : ?1}")
+    Collection<Post> findByCategoryId(String id,boolean isApproved);
 
     List<Post> findByisApprovedIsTrue();
 

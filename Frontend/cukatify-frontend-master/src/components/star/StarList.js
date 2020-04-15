@@ -9,7 +9,7 @@ class StarList extends Component {
         let i = 0;
         let listOfStars = []
         while(i !== this.props.rating){
-            listOfStars.push(<Star key = {i} nth = {i+1} />)
+            listOfStars.push(<Star key = {i} nth = {i+1} marginTop = {this.props.marginTop} />)
             i++;
         }
 

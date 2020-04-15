@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import SearchBar from "./SearchBar";
 import {  NavLink } from "react-router-dom";
+import Container from "./Container"
 import "./Header.css";
 import { connect } from "react-redux";
 import { logout } from "../../actions/securityActions";
@@ -11,7 +12,6 @@ class Header extends Component {
 
 
     logout = () => {
-        console.log(1)
         this.props.logout();
         window.location.href = "/Login";
       }
@@ -40,12 +40,13 @@ class Header extends Component {
           }
 
         return (
-            <div className="ui inverted segment">
-                <div className="ui inverted secondary pointing menu">
+            <div className="width_header">
+            <div className="ui inverted segment ">
+                <div className="ui inverted secondary menu">
                     <nav>
                         <ul>
                             <li>
-                                <NavLink to="/" exact activeClassName="active-link">
+                                <NavLink to="/post/list" exact activeClassName="active-link">
                                     Home
                                 </NavLink>
                             </li>
@@ -63,8 +64,11 @@ class Header extends Component {
                             {headerLinks}
                         </div>
                 </div>
-                </div>
+                </div>  
             </div>
+            <Container/>
+            </div>
+            
         );
     }
 }

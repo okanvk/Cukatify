@@ -13,6 +13,7 @@ import { setJWTToken } from "./actions/securityActions";
 
 
 
+
 import PostList from './components/post/PostList';
 import NotFound from './components/NotFound'
 
@@ -56,13 +57,12 @@ class App extends Component {
         <div className="App" >
           <Header />
           <Switch>
+            
             <Route exact path="/login" component={Login}></Route>
-            <SecuredRoute exact path="/" component={PostList}></SecuredRoute>
+            <SecuredRoute exact path="/post/list" component={PostList}></SecuredRoute>
             <SecuredRoute exact path="/post/add" component={PostAdd}></SecuredRoute>
             <SecuredRoute exact path="/artistView/:name" component={ArtistView}></SecuredRoute>
             <SecuredRoute exact path="/post/:id" component={PostView}></SecuredRoute>
-            <SecuredRoute exact path="/time" component={PostList}></SecuredRoute>
-            <SecuredRoute exact path="/pictures" component={PostList}></SecuredRoute>
             <SecuredRoute path="*" component={NotFound}></SecuredRoute>
           </Switch>
 

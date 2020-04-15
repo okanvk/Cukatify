@@ -31,4 +31,12 @@ public class CreateRelationshipController {
 
     }
 
+    @RequestMapping(value = "/setRatings", method = RequestMethod.GET)
+    public ResponseEntity<?> setRatings () {
+
+        rsService.setRatings();
+        return new ResponseEntity(null, HttpStatus.OK);
+
+    }
+
 }

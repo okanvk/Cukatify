@@ -17,6 +17,14 @@ class PostView extends Component {
         this.props.getRecommendedPosts();
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.match.params.id !== this.props.match.params.id){
+            const id = this.props.match.params.id
+            this.props.getSelectedPost(id);
+            this.props.getRecommendedPosts();
+        }
+      }
+
     render() {
         if(!this.props.selectedPost){
             return <Redirect to = "/postList" />
@@ -35,7 +43,7 @@ class PostView extends Component {
                     </p>
                     <div className="meta"><span className="date">{createdAt}</span></div>
                     <div className="meta"><span className="text">Category : {category.name}</span></div>
-                    <StarList rating = {rating} />
+                    <StarList rating = {rating} marginTop = {3} />
                 </div>
 
             </div>

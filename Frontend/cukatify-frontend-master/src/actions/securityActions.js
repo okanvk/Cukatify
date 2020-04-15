@@ -49,7 +49,7 @@ export const login = (LoginRequest,history) => async dispatch => {
       payload: decoded
     });
 
-    history.push("/")
+    history.push("/post/list")
     
   } catch (err) {
     console.log(err)

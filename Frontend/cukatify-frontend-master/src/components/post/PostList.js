@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import Post from './Post'
 
-import {connect} from 'react-redux'
-import {getPosts} from '../../actions/postActions'
+import { connect } from 'react-redux'
+import { getPosts } from '../../actions/postActions'
 
 
 class PostList extends Component {
@@ -15,24 +15,30 @@ class PostList extends Component {
 
     renderList() {
         return this.props.posts.map(post => {
-            return <Post post = {post} key = {post.id} />
+            return <Post post={post} key={post.id} />
         })
     }
 
     render() {
         return (
-            <div className="ui divided items">
-                {this.renderList()}
+            <div style = {{marginTop : 50}}>
+                <h4 className="ui horizontal divider header">
+                    <i className="tag icon"></i>
+                    Posts
+                </h4>
+                <div className="ui divided items" style = {{marginTop : 25}}>
+                    {this.renderList()}
+                </div>
             </div>
         )
     }
 
 }
 
-const mapStateToProps = ({postState}) => {
-    return {posts : postState.posts};
+const mapStateToProps = ({ postState }) => {
+    return { posts: postState.posts };
 }
 
-export default connect(mapStateToProps,{
-    getPosts 
+export default connect(mapStateToProps, {
+    getPosts
 })(PostList)

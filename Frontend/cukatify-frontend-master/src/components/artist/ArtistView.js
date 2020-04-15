@@ -9,7 +9,7 @@ class ArtistView extends Component {
 
     componentDidMount() {
         const artistName = this.props.match.params.name
-        this.props.getArtist(artistName);
+        this.props.getArtist(artistName,this.props.history);
     }
 
     findRelated = (artistUrl) => {
@@ -43,17 +43,7 @@ class ArtistView extends Component {
 
     render() {
         if(!this.props.artist){
-            return(
-                <div className="ui error message center">
-            <i className="close icon"></i>
-                <div className="header">
-                    There were some errors
-                </div>
-                <div className="list">
-                    <li>This isn't the web page you are looking for.</li>
-                </div>
-            </div>
-            )
+            return <NotFound/>
         }
         const { page, name, description,imageUrl,relatedThingList } = this.props.artist;
         return (

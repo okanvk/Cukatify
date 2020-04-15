@@ -8,8 +8,8 @@ const RecPostList = (props) => {
     const { posts } = props
 
     const renderedPosts = posts.map(post => {
-        return <div className="column">
-            <div className="item">
+        return <div className="column" key={post._id}>
+            <div className="item" >
                 <div className="content">
                     <h3 className="header">{post.title}</h3>
                     <div className="ui small image"><img alt="." src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg" /></div>
@@ -19,9 +19,7 @@ const RecPostList = (props) => {
                 </div>
                 <div style={{ marginTop: 10 }}>
                     <div className="meta"><span className="date">{post.createdAt}</span></div>
-                    <div style={{ marginTop: 10 }} >
-                        <StarList rating={post.rating} />
-                    </div>
+                    <StarList rating={post.rating}  marginTop = {3}/>
                     <Link to={`/post/${post._id}`} className="ui primary basic button right floated">View Post</Link>
                 </div>
             </div>

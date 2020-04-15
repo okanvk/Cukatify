@@ -6,6 +6,7 @@ export const getArtist = (artistName,history) =>
         try{
             const response = await springapi.get(`/artists/findArtistByName/${artistName}`)
             if(response.status === 200){
+                history.push(`/ArtistView/${artistName}`);
                 dispatch({
                     type : GET_ARTIST,
                     payload : response.data

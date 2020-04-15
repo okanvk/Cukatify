@@ -118,6 +118,44 @@ public class RsServiceImpl implements RsService{
         return rating;
     }
 
+    @Override
+    public void setRatings(){
+
+
+
+        List<Rating> ratings = ratingRepository.findAll();
+
+        List<Post> posts = postRepository.findAll();
+
+        for(Post p : posts){
+
+            float total_rating = 0;
+            int total_rating_count = 0;
+
+            for(Rating r : ratings){
+
+                if(r.getPostId().equals(p.getId())){
+
+                    total_rating += r.getRating();
+                    total_rating_count += 1;
+
+                }
+
+            }
+
+            float final_rating = total_rating / total_rating_count;
+            int rounded_value = Math.round(final_rating);
+            p.setRating(rounded_value);
+
+            postRepository.save(p);
+
+
+        }
+
+
+
+    }
+
 
 
 

@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,7 +40,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> takeAllPostsByCategory(String id) {
-        return this.postRepository.findByCategoryId(id).stream().collect(Collectors.toList());
+        boolean isApprooved = true;
+        return this.postRepository.findByCategoryId(id,isApprooved).stream()
+                    .sorted(Comparator.comparing(Post::getCreatedAt).reversed()).collect(Collectors.toList());
     }
 
     @Override
