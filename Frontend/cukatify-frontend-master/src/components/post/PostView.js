@@ -7,6 +7,7 @@ import {getRecommendedPosts} from '../../actions/recommenderActions'
 import { Redirect } from 'react-router-dom';
 import StarList from "../star/StarList"
 import RecPostList from "./RecPostList"
+import OpenSideContainer from '../layout/Container';
 
 
 class PostView extends Component {
@@ -33,6 +34,13 @@ class PostView extends Component {
 
         return (
             <div>
+            <OpenSideContainer/>
+            <div style = {{marginTop : 50}}>
+            <h4 className="ui horizontal divider header">
+                <i className="tag icon"></i>
+                Post
+            </h4>
+        </div>
             <div className="item">
             <div className="ui small image"><img alt="." src="https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg" /></div>
             <div className="content">

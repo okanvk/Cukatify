@@ -2,6 +2,15 @@
 import springapi from '../api/springapi'
 import {GET_POSTS,GET_SELECTED_POST, SAVE_POST} from '../actions/types'
 
+export const getSpecificPosts = (id) => 
+      async (dispatch) => {
+        const response = await springapi.get(`/posts/findByCategoryId/${id}`)
+        dispatch({
+            type : GET_POSTS,
+            payload : response.data.data
+        })
+      }
+
 export const getPosts = () => 
       async (dispatch) => {
         const response = await springapi.get("/posts/findAll")

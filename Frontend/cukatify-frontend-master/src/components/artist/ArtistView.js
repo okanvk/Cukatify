@@ -48,7 +48,13 @@ class ArtistView extends Component {
         const { page, name, description,imageUrl,relatedThingList } = this.props.artist;
         return (
             <div>
-            <div itemScope itemType = "http://dbpedia.org/ontology/Band">
+            <div style = {{marginTop : 50}}>
+            <h4 className="ui horizontal divider header">
+                <i className="music icon"></i>
+                Artist & Band
+            </h4>
+        </div>
+            <div itemScope itemType = "http://dbpedia.org/ontology/Band" style = {{marginTop : 15}}>
             <div className="image">
                 <img itemProp = "image" src={imageUrl} alt = "." />
             </div>

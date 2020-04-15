@@ -11,20 +11,17 @@ import PostAdd from './post/PostAdd';
 import SecuredRoute from "../utils/SecuredRoute";
 
 
+
 class Routes extends Component {
 
     render() {
         return (
             <Switch>
-             
-              <SecuredRoute exact path="/" component={PostList}></SecuredRoute>
-              <SecuredRoute exact path="/post/add" component={PostAdd}></SecuredRoute>
-              <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/login" component={Login}></Route>
+              <SecuredRoute  path="/post/list/:id" component={PostList}></SecuredRoute>
+              <SecuredRoute  path="/post/add" component={PostAdd}></SecuredRoute>
+              <SecuredRoute  path="/post/:id" component={PostView}></SecuredRoute>
               <SecuredRoute exact path="/artistView/:name" component={ArtistView}></SecuredRoute>
-              <SecuredRoute exact path="/post/:id" component={PostView}></SecuredRoute>
-              
-              <SecuredRoute exact path="/time" component={PostList}></SecuredRoute>
-              <SecuredRoute exact path="/pictures" component={PostList}></SecuredRoute>
               <SecuredRoute path="*" component={NotFound}></SecuredRoute>
             </Switch>
         )

@@ -9,20 +9,7 @@ import { SET_CURRENT_USER } from "./actions/types";
 import { logout } from "./actions/securityActions";
 import jwt_decode from "jwt-decode";
 import { setJWTToken } from "./actions/securityActions";
-
-
-
-
-
-import PostList from './components/post/PostList';
-import NotFound from './components/NotFound'
-
-import { Route, Switch } from "react-router-dom";
-import PostView from './components/post/PostView';
-import Login from './components/auth/Login'
-import ArtistView from './components/artist/ArtistView';
-import PostAdd from './components/post/PostAdd';
-import SecuredRoute from "./utils/SecuredRoute";
+import Routes from './components/Routes';
 
 
 setJWTToken(localStorage.setJWTToken)
@@ -56,16 +43,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App" >
           <Header />
-          <Switch>
-            
-            <Route exact path="/login" component={Login}></Route>
-            <SecuredRoute exact path="/post/list" component={PostList}></SecuredRoute>
-            <SecuredRoute exact path="/post/add" component={PostAdd}></SecuredRoute>
-            <SecuredRoute exact path="/artistView/:name" component={ArtistView}></SecuredRoute>
-            <SecuredRoute exact path="/post/:id" component={PostView}></SecuredRoute>
-            <SecuredRoute path="*" component={NotFound}></SecuredRoute>
-          </Switch>
-
+          <Routes />
         </div>
       </BrowserRouter> 
       </Provider>

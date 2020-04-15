@@ -6,17 +6,12 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import com.okanciftci.cukatify.entities.mongo.Category;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.core.io.Resource;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.UUID;
 
 @Document("Post")

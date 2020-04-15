@@ -3,15 +3,32 @@ import React, { Component } from 'react'
 import Post from './Post'
 
 import { connect } from 'react-redux'
-import { getPosts } from '../../actions/postActions'
-
+import { getPosts ,getSpecificPosts} from '../../actions/postActions'
+import OpenSideContainer from '../layout/Container';
 
 class PostList extends Component {
 
+    bringData = (id) => {
+        console.log(id)
+        if (id == 0){
+            this.props.getPosts();
+        }else{
+            this.props.getSpecificPosts(id)
+        }
+
+    }
 
     componentDidMount() {
-        this.props.getPosts();
+        const id = this.props.match.params.id
+        this.bringData(id)
     }
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.match.params.id !== this.props.match.params.id){
+            const id = this.props.match.params.id
+            this.bringData(id)
+        }
+      }
 
     renderList() {
         return this.props.posts.map(post => {
@@ -21,6 +38,8 @@ class PostList extends Component {
 
     render() {
         return (
+            <div>
+                <OpenSideContainer />
             <div style = {{marginTop : 50}}>
                 <h4 className="ui horizontal divider header">
                     <i className="tag icon"></i>
@@ -29,6 +48,7 @@ class PostList extends Component {
                 <div className="ui divided items" style = {{marginTop : 25}}>
                     {this.renderList()}
                 </div>
+            </div>
             </div>
         )
     }
@@ -40,5 +60,6 @@ const mapStateToProps = ({ postState }) => {
 }
 
 export default connect(mapStateToProps, {
-    getPosts
+    getPosts,
+    getSpecificPosts
 })(PostList)
