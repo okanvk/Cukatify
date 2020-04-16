@@ -1,11 +1,11 @@
 package com.okanciftci.cukatify.controllers;
 
-import com.okanciftci.cukatify.common.ResponseEnum;
 import com.okanciftci.cukatify.entities.mongo.User;
 import com.okanciftci.cukatify.models.LoginRequest;
 import com.okanciftci.cukatify.models.LoginSuccessResponse;
 import com.okanciftci.cukatify.security.jwt.JwtTokenProvider;
 import com.okanciftci.cukatify.services.impl.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +13,15 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 
 import static com.okanciftci.cukatify.security.SecurityConstants.TOKEN_PREFIX;
 
 @RestController
 @RequestMapping("/users")
 @CrossOrigin
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -33,6 +32,8 @@ public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+
 
 
     @PostMapping("/login")
@@ -53,6 +54,7 @@ public class UserController {
             return ResponseEntity.ok(new LoginSuccessResponse(true,jwt));
 
         }catch (Exception e){
+            log.error("Exception " + e.getMessage());
             return ResponseEntity.badRequest().body(false);
         }
 
