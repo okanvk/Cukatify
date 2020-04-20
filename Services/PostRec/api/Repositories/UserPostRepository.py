@@ -1,4 +1,3 @@
-import pymongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
@@ -20,3 +19,4 @@ class UserPostDAO:
         obj_id = ObjectId(id)
         post = self.post_collection.find_one({"_id": obj_id})
         return post
+

@@ -8,12 +8,12 @@ class RecommenderService:
         self._user_post_dao = UserPostDAO()
         self._post_recommender = PostRecommender()
 
-    def recommend_posts(self, username):
+    def recommend_posts(self, username,curr_post_id):
         user_id = self._user_post_dao.find_user_id_by_username(username)
 
         str_user_id = str(user_id)
 
-        post_ids = self._post_recommender.recommend_3_post(str_user_id)
+        post_ids = self._post_recommender.recommend_3_post(str_user_id,curr_post_id)
 
         posts = []
         for _id in post_ids:

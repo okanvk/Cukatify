@@ -27,6 +27,7 @@ export const getSelectedPost = (id) =>
           payload : response.data.data
       })
   }
+  
 export const savePost = (formData) =>
   async (dispatch) => {
       const config = {

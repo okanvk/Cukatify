@@ -12,13 +12,14 @@ rec_app = Blueprint('rec_app', __name__)
 rec_service = RecommenderService()
 
 
-@rec_app.route('/recommend', methods=['GET'])
-def recommend():
+@rec_app.route('/recommend/<curr_post_id>', methods=['GET'])
+def recommend(curr_post_id):
     try:
+
         token = request.headers.get('Authorization')[7:]
         username = decode_jwt(token)
 
-        posts = rec_service.recommend_posts(username)
+        posts = rec_service.recommend_posts(username,curr_post_id)
 
         return jsonify({"posts" : posts})
 

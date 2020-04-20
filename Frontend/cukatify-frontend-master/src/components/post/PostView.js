@@ -15,20 +15,20 @@ class PostView extends Component {
     componentDidMount() {
         const postId = this.props.match.params.id
         this.props.getSelectedPost(postId);
-        this.props.getRecommendedPosts();
+        this.props.getRecommendedPosts(postId);
     }
 
     componentDidUpdate(prevProps, prevState){
         if(prevProps.match.params.id !== this.props.match.params.id){
             const id = this.props.match.params.id
             this.props.getSelectedPost(id);
-            this.props.getRecommendedPosts();
+            this.props.getRecommendedPosts(id);
         }
       }
 
     render() {
         if(!this.props.selectedPost){
-            return <Redirect to = "/postList" />
+            return <Redirect to = "/post/list/0" />
         }
         const {title,content,rating,createdAt,category} = this.props.selectedPost
 

@@ -1,13 +1,15 @@
 
 from tensorflow.keras.models import load_model
 from random import choice
+from api.Repositories.PostRatingRepository import PostRatingRepository
 import pandas as pd
 
 class PostRecommender:
 
     def __init__(self):
         self.post_model = load_model("api/Services/postrec_model.h5")
-        self.df = pd.read_csv('api/Services/userpostratings.csv')
+        self.ratingRepository = PostRatingRepository()
+        self.convert_ratings_collection_2_dataframe()
         self.df = self.df[['_id', 'userId', 'postId', 'rating']]
         self.df.drop("_id", axis=1)
         self.users_items_matrix_df = self.df.pivot(index='userId',
@@ -20,7 +22,7 @@ class PostRecommender:
                                                  columns=self.users_items_matrix_df.columns,
                                                  index=self.users_items_matrix_df.index)
 
-    def _recommender_for_user(self,user_id, topn=5):
+    def _recommender_for_user(self,user_id, topn=6):
 
         pred_scores = self.new_users_items_matrix_df.loc[user_id].values
 
@@ -33,13 +35,13 @@ class PostRecommender:
 
         return df_rec[df_rec.score > 0].index.values.tolist()
 
-    def recommend_3_post(self, user_id):
+    def recommend_3_post(self, user_id,curr_post_id):
         post_ids = self._recommender_for_user(user_id)
-        post_3 = self.__select3Post__(post_ids)
+        post_3 = self.__select3Post__(post_ids,curr_post_id)
         return post_3
 
 
-    def __select3Post__(self,list):
+    def __select3Post__(self,list,curr_post_id):
         sec_list = []
         while True:
             if len(sec_list) == 3:
@@ -47,9 +49,11 @@ class PostRecommender:
 
             id = choice(list)
 
-            if id not in sec_list:
+            if id not in sec_list and id != curr_post_id:
                 sec_list.append(id)
 
         return sec_list
 
-
+    def convert_ratings_collection_2_dataframe(self):
+        ratings = self.ratingRepository.getRatings();
+        self.df = pd.DataFrame(ratings).drop(['_class'],axis=1)

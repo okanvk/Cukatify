@@ -9,7 +9,6 @@ import OpenSideContainer from '../layout/Container';
 class PostList extends Component {
 
     bringData = (id) => {
-        console.log(id)
         if (id == 0){
             this.props.getPosts();
         }else{
