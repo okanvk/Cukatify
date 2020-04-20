@@ -16,12 +16,11 @@ class SpotifyAPIAccess:
     def find_user_most_listen_songs(self, token):
         r = requests.get(f"https://api.spotify.com/v1/me/top/tracks", params={"time_range" : "short_term"}, headers={"Authorization": f"Bearer {token}"});
 
-        print(r.status_code)
         tracks = r.json()['items']
 
         tracks_list = []
         tracks_list_count = 0
-        max_track = 5
+        max_track = 10
 
         for track in tracks:
             first_index = 0
@@ -44,7 +43,6 @@ class SpotifyAPIAccess:
 
             tracks_list_count += 1
 
-
             duplicated = False
             for track_in in tracks_list:
                 if data['artist_uri'] == track_in['artist_uri']:
@@ -56,10 +54,9 @@ class SpotifyAPIAccess:
                 continue
 
             if tracks_list_count > max_track:
-                print(tracks_list)
                 return tracks_list[:max_track]
 
-        print(tracks_list)
+
         return tracks_list
 
     def find_tracks_features(self, tracks, token):
@@ -125,7 +122,7 @@ class SpotifyAPIAccess:
                          headers={"Authorization": f"Bearer {token}"});
 
         playlist_id = r.json()['id']
-        uris = ",".join(track_uris[:55])
+        uris = ",".join(track_uris[:50])
         r = requests.post(f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
                           params={"uris": uris},
                           headers={"Authorization": f"Bearer {token}"});

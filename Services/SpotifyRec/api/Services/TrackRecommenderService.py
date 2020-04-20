@@ -19,6 +19,7 @@ class TrackRecommender:
         self.user_id = None
 
     def init_label_values(self, tracks):
+
         self.genre_label_attacher.predict_genre_label(tracks)
         self.audio_feature_attacher.predict_audio_features_label(tracks)
 
@@ -48,6 +49,7 @@ class TrackRecommender:
     def recommend_tracks(self, token):
 
         tracks = self.spotify_api.get_most_songs_according_to_user(token)
+
         self.init_label_values(tracks)
 
         self.track_repository.save_multiple_tracks_gecici(tracks)
@@ -63,8 +65,8 @@ class TrackRecommender:
 
             related_tracks_by_genre = self.track_repository.find_by_genre_and_music_labels(genre_label, audio_label)
 
-            if len(related_tracks_by_genre) > 30:
-                related_tracks_by_genre = random.sample(related_tracks_by_genre, 30)
+            if len(related_tracks_by_genre) > 40:
+                related_tracks_by_genre = random.sample(related_tracks_by_genre, 40)
 
             cos_sim = []
 
@@ -86,9 +88,10 @@ class TrackRecommender:
 
             cos_sim.sort(reverse=True)
 
+
             cos_sim_len = len(cos_sim)
-            if cos_sim_len > 10:
-                cos_sim_len = 10
+            if cos_sim_len > 5:
+                cos_sim_len = 5
 
 
             for most_similar in cos_sim[:cos_sim_len]:
