@@ -14,6 +14,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-spotify-login": "^0.9.1",
     "react-widgets": "^4.4.11",
     "redux": "^4.0.5",
     "redux-form": "^8.3.1",

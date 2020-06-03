@@ -20,6 +20,8 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
 
+
+
     public User saveUser(User newUser){
         try{
             newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
@@ -29,11 +31,17 @@ public class UserService {
         }
     }
 
+
+
     public User getUser(String username){
 
-        User user = userRepository.findByUsername(username);
-        user.setPassword("");
-        return user;
+        try{
+            User user = userRepository.findByUsername(username);
+            user.setPassword("");
+            return user;
+        }catch (Exception e){
+            return null;
+        }
 
     }
     public User updateUser(User newUser){

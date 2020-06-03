@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { login } from '../../actions/securityActions'
-import { logout } from "../../actions/securityActions";
+import { login, getSpotifyLoginURI, logout } from '../../actions/securityActions'
+
 
 
 class Login extends Component {
 
+    
+
     signInWithSpotify = () => {
-   
+        this.props.getSpotifyLoginURI();
     }
 
     renderError = ({ error, touched }) => {
@@ -20,6 +22,8 @@ class Login extends Component {
             )
         }
     }
+
+
 
     renderEmail = ({ input, label, meta }) => {
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`
@@ -104,4 +108,4 @@ const mapStateToProps = ({ security }) => ({
     security : security
 })
 
-export default connect(mapStateToProps, { login,logout })(form)
+export default connect(mapStateToProps, { login,logout,getSpotifyLoginURI })(form)

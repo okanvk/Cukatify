@@ -17,6 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -35,6 +36,12 @@ public class User implements UserDetails {
 
     private String password;
 
+    private boolean isSpotifyUser;
+
+    private String accessToken;
+
+    private String spotifyId;
+
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(pattern="yyyy-MM-dd")
@@ -46,6 +53,13 @@ public class User implements UserDetails {
     public User() {
         this.created_At = LocalDateTime.now();
         this.id = UUID.randomUUID().toString();
+    }
+
+    public void addRole(Role role){
+        if(role_ids == null){
+            role_ids = new ArrayList<>();
+        }
+        this.role_ids.add(role);
     }
 
     @Override

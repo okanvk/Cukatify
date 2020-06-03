@@ -93,7 +93,6 @@ class TrackRecommender:
             if cos_sim_len > 5:
                 cos_sim_len = 5
 
-
             for most_similar in cos_sim[:cos_sim_len]:
                 similarity, id = most_similar
 

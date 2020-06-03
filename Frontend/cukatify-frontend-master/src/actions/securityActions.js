@@ -21,6 +21,15 @@ export const getUser = () => async dispatch => {
   });
 };
 
+export const getSpotifyLoginURI = (history) => async dispatch => {
+  try {
+    const response = await springapi.get("/spotify/loginURI");
+    window.location.href = response.data;
+  }catch(err){
+    console.log(err)
+  }
+  console.log(1)
+}
 
 
 export const updateUser = (updateUser, history) => async dispatch => {

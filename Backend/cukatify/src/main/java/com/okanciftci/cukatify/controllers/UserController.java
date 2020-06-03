@@ -70,7 +70,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<?> saveUsers(){
+    public ResponseEntity<?> saveUser(){
 
         return new ResponseEntity(null,HttpStatus.OK);
     }
