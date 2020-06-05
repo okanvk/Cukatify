@@ -5,6 +5,7 @@ import com.okanciftci.cukatify.exceptions.ArtistNotFoundException;
 import com.okanciftci.cukatify.exceptions.ArtistNotFoundResponse;
 import com.okanciftci.cukatify.models.ArtistRelatedThing;
 import com.okanciftci.cukatify.ontology.abstr.SparQLArtistKAO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.jena.base.Sys;
 import org.apache.jena.query.*;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Arrays;
 
 @Repository
+@Slf4j
 public class SparQLArtistKAOImpl implements SparQLArtistKAO {
 
     @Override
@@ -98,10 +100,10 @@ public class SparQLArtistKAOImpl implements SparQLArtistKAO {
             if(solution.contains("imageUrl")) {
                 artistRelatedThing.setImage(solution.getResource("imageUrl").toString());
             }
-            ;
+
 
         } catch (Exception e) {
-           e.printStackTrace();
+           log.error(e.getMessage());
         }
 
 

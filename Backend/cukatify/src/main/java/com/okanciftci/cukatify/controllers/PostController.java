@@ -67,7 +67,7 @@ public class PostController {
         try {
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException ex) {
-            throw new RuntimeException();
+            return ResponseEntity.badRequest().body(resource);
         }
 
         // Fallback to the default content type if type could not be determined

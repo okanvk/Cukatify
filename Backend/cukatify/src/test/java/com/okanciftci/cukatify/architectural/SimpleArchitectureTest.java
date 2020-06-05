@@ -6,6 +6,7 @@ import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.library.GeneralCodingRules;
 
+import static com.tngtech.archunit.core.domain.JavaClass.Predicates.resideInAPackage;
 import static com.tngtech.archunit.core.domain.JavaClass.Predicates.simpleNameEndingWith;
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
@@ -23,11 +24,13 @@ public class SimpleArchitectureTest {
             .layer("Controller").definedBy(simpleNameEndingWith("Controller"))
             .layer("Service").definedBy(simpleNameEndingWith("Service").or(simpleNameEndingWith("ServiceImpl")))
             .layer("Persistence").definedBy(simpleNameEndingWith("Repository"))
+            .layer("Security").definedBy(resideInAPackage("com.okanciftci.cukatify.security").or(resideInAPackage("com.okanciftci.cukatify.security.jwt")))
+            .layer("Test").definedBy(resideInAPackage("com.okanciftci.cukatify.unit_integration"))
 
-            .whereLayer("Controller").mayNotBeAccessedByAnyLayer()
-            .whereLayer("Service").mayOnlyBeAccessedByLayers("Controller","Service")
+            .whereLayer("Controller").mayOnlyBeAccessedByLayers("Test")
+            .whereLayer("Service").mayOnlyBeAccessedByLayers("Controller","Service","Security","Test")
+            .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Service","Test");
 
-            .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Service");
 
 
     @ArchTest

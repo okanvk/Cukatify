@@ -54,7 +54,7 @@ public class SpotifyLoginHelper {
         try {
             final AuthorizationCodeCredentials authorizationCodeCredentials = authorizationCodeRequest.execute();
 
-            System.out.println("Expires in: " + authorizationCodeCredentials.getExpiresIn());
+            log.info("Expires in: " + authorizationCodeCredentials.getExpiresIn());
             return authorizationCodeCredentials.getAccessToken();
 
         } catch (IOException | SpotifyWebApiException | ParseException e) {
