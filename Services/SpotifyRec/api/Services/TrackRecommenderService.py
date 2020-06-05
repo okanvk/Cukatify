@@ -6,8 +6,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import random
 import numpy as np
 
-token = "BQAWNxnE_JOg0RyQfVkbRniZxPPUnyBkoobunui_R3vYDdllJ1EaVLRtXF11RWc5MnmkEVwEE0KX6jMn9fRLFEWrpJI1F9ERaYUlEgCGdwTJTIWpH9O3IxghRxCOCdCjNuayEhofy36BEGP7Pm3DU-ATID_BJG_QVwJGQmjY1plrr67T6_LeoQ"
-
 
 class TrackRecommender:
 
@@ -65,8 +63,8 @@ class TrackRecommender:
 
             related_tracks_by_genre = self.track_repository.find_by_genre_and_music_labels(genre_label, audio_label)
 
-            if len(related_tracks_by_genre) > 40:
-                related_tracks_by_genre = random.sample(related_tracks_by_genre, 40)
+            if len(related_tracks_by_genre) > 30:
+                related_tracks_by_genre = random.sample(related_tracks_by_genre, 30)
 
             cos_sim = []
 
@@ -90,8 +88,8 @@ class TrackRecommender:
 
 
             cos_sim_len = len(cos_sim)
-            if cos_sim_len > 5:
-                cos_sim_len = 5
+            if cos_sim_len > 4:
+                cos_sim_len = 4
 
             for most_similar in cos_sim[:cos_sim_len]:
                 similarity, id = most_similar

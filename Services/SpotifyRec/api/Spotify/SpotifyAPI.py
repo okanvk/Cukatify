@@ -122,7 +122,7 @@ class SpotifyAPIAccess:
                          headers={"Authorization": f"Bearer {token}"});
 
         playlist_id = r.json()['id']
-        uris = ",".join(track_uris[:50])
+        uris = ",".join(track_uris[:25])
         r = requests.post(f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
                           params={"uris": uris},
                           headers={"Authorization": f"Bearer {token}"});
@@ -135,8 +135,3 @@ class SpotifyAPIAccess:
                          headers={"Authorization": f"Bearer {token}"});
 
         return r.json()['id']
-
-
-
-
-

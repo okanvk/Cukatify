@@ -19,6 +19,7 @@ import java.net.URI;
 public class SpotifyLoginHelper {
 
     private static final String clientId = "844bc5b0b0f84f83bd226642b3108896";
+    public static final String staticPass = "A|12";
     private static final String clientSecret = "60bb43794bd94fd6a08a9996451ad258";
     private static final URI redirectUri = SpotifyHttpManager.makeUri("http://localhost:8090/spotify/callback");
 
@@ -29,6 +30,7 @@ public class SpotifyLoginHelper {
                 .setRedirectUri(redirectUri)
                 .build();
         AuthorizationCodeUriRequest authorizationCodeUriRequest = spotifyApi.authorizationCodeUri()
+                .scope("user-read-email user-read-private user-top-read user-read-recently-played playlist-modify-public user-read-playback-position user-library-read playlist-modify-private user-read-currently-playing playlist-read-collaborative playlist-read-private user-follow-read")
                 .build();
         try {
             final URI authorizationCodeCredentials = authorizationCodeUriRequest.execute();

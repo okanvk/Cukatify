@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/secureuser")
+@RequestMapping("/secureusers")
 @CrossOrigin
 public class SecureUserController {
 

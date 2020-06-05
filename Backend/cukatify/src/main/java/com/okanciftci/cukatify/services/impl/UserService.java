@@ -48,7 +48,7 @@ public class UserService {
 
         try{
 
-            User updatedUser = userRepository.getById(newUser.getId());
+            User updatedUser = userRepository.getById(newUser.getId().toString());
 
             updatedUser.setFullName(newUser.getFullName());
             updatedUser.setPassword(passwordEncoder.encode(newUser.getPassword()));

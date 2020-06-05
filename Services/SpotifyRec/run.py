@@ -7,4 +7,4 @@ application = create_app(
 
 
 if __name__ == '__main__':
-    application.run()
+    application.run(port=5001)

@@ -1,6 +1,8 @@
 
 import springapi from '../api/springapi'
 import postrecapi from '../api/postrecapi'
+import spotifyrecapi from '../api/spotifyrecapi'
+
 import { SET_CURRENT_USER, GET_USER } from "../actions/types";
 import jwt_decode from "jwt-decode";
 
@@ -65,15 +67,37 @@ export const login = (LoginRequest,history) => async dispatch => {
   }
 };
 
+export const setToken = (token) => async dispatch => {
+  try {
+
+    localStorage.setItem("jwtToken", token);
+
+    setJWTToken(token);
+
+    const decoded = jwt_decode(token);
+
+
+    dispatch({
+      type: SET_CURRENT_USER,
+      payload: decoded
+    });
+    
+  }catch(err){
+    localStorage.clear();
+  }
+}
+
 
 
 export const setJWTToken = token => {
   if (token) {
     springapi.defaults.headers.common["Authorization"] = token;
     postrecapi.defaults.headers.common["Authorization"] = token;
+    spotifyrecapi.defaults.headers.common["Authorization"] = token;
   } else {
     delete springapi.defaults.headers.common["Authorization"];
     delete postrecapi.defaults.headers.common["Authorization"];
+    delete spotifyrecapi.defaults.headers.common["Authorization"];
   }
 };
 

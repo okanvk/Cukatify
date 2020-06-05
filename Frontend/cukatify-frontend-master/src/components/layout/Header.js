@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import SearchBar from "./SearchBar";
 import {  NavLink } from "react-router-dom";
-import Container from "./Container"
 import "./Header.css";
 import { connect } from "react-redux";
 import { logout } from "../../actions/securityActions";
@@ -12,8 +11,9 @@ class Header extends Component {
 
 
     logout = () => {
+        console.log(1)
         this.props.logout();
-        window.location.href = "/Login";
+        window.location.href = "/login";
       }
 
     render() {

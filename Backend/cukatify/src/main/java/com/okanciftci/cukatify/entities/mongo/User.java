@@ -9,6 +9,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -27,7 +29,8 @@ import java.util.UUID;
 @Document("User")
 public class User implements UserDetails {
 
-    private String id;
+    @Id
+    private ObjectId id;
 
     @Indexed(name="userName", unique=true)
     private String username;
@@ -52,7 +55,7 @@ public class User implements UserDetails {
 
     public User() {
         this.created_At = LocalDateTime.now();
-        this.id = UUID.randomUUID().toString();
+
     }
 
     public void addRole(Role role){
