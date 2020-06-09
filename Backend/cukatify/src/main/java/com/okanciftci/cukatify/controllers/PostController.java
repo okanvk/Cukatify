@@ -49,7 +49,7 @@ public class PostController {
         return new ResponsePayload(ResponseEnum.OK,posts);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('USER')")
     @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
     public ResponsePayload findPostById (@PathVariable String id) {
         Post post = postService.findById(id);
@@ -104,9 +104,4 @@ public class PostController {
 
 
     }
-
-
-
-
-
 }

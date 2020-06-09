@@ -45,7 +45,7 @@ public class JwtTokenProvider implements Serializable {
         return expiration.before(new Date());
     }
 
-    public String generateToken(Authentication authentication,String token) {
+    public String generateToken(Authentication authentication,String token,String fullName) {
 
         final String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
@@ -55,6 +55,7 @@ public class JwtTokenProvider implements Serializable {
                 .setSubject(authentication.getName())
                 .claim(AUTHORITIES_KEY, authorities)
                 .claim("accessToken",token)
+                .claim("fullName",fullName)
                 .signWith(SignatureAlgorithm.HS256, SECRET)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME*1000))

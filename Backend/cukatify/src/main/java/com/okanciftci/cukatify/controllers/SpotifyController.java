@@ -91,6 +91,10 @@ public class SpotifyController {
 
             newSystemUser.addRole(role);
 
+            role = roleService.getRoleByName(RoleNames.USER.name());
+
+            newSystemUser.addRole(role);
+
             userService.saveUser(newSystemUser);
 
             try {
@@ -102,7 +106,7 @@ public class SpotifyController {
                 );
 
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token);
+                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token,spotifyUser.getDisplayName());
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.add("Location", "http://localhost:3000/spotify#"+jwt);
@@ -122,7 +126,7 @@ public class SpotifyController {
 
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
-                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token);
+                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token,systemUser.getFullName());
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.add("Location", "http://localhost:3000/spotify#"+jwt);

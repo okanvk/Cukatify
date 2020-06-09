@@ -30,11 +30,11 @@ class ArtistView extends Component {
                 t.image = NotFound
             }
             return (
-                <div itemsScope itemType = "http://dbpedia.org/ontology/associatedMusicalArtist" key = {t.url}>
+                <div style={{marginTop: 5}} itemsScope itemType = "http://dbpedia.org/ontology/associatedMusicalArtist" key = {t.url}>
                 <div className="image">
                 <img itemProp = "image" src={t.image} alt = "." style = {{width : 250, height : 300}} />
                 </div>
-                <button onClick={() => this.findRelated(t.url)} itemProp = "name"  className="item">{t.name}</button>
+                <button onClick={() => this.findRelated(t.url)} itemProp = "name"  className="ui grey button">{t.name}</button>
             </div> 
             )
         })
@@ -73,10 +73,10 @@ class ArtistView extends Component {
                     </div>
                 </div>
             </div>
-            <div className = "ui list">
+            <div className="ui four column doubling stackable grid container">
             {relatedThingList.length !== 0 ? this.renderRelatedThings(relatedThingList) : <div>
-                    -
-                </div>}
+                -
+            </div>}
             </div>
             </div>
         )

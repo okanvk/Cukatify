@@ -7,6 +7,14 @@ import StarList from "../star/StarList"
 const RecPostList = (props) => {
     const { posts } = props
 
+    const noPosts = (
+            <h4 className="ui horizontal divider header" style={{ marginTop: 15 }}>
+            <i className="thumbs up icon"></i>
+        We're preparing posts for you.
+        </h4>
+        
+    )
+
     const renderedPosts = posts.map(post => {
         return <div className="column" key={post._id}>
             <div className="item" >
@@ -28,13 +36,12 @@ const RecPostList = (props) => {
     })
 
     return (
-        <div>
-            <h4 className="ui horizontal divider header" style={{ marginTop: 15 }}>
-                <i className="thumbs up icon"></i>
-            Posts, you might like
-            </h4>
+        <div>{props.posts.length > 0 ?             <h4 className="ui horizontal divider header" style={{ marginTop: 15 }}>
+        <i className="thumbs up icon"></i>
+    Posts, you might like
+    </h4> : noPosts}
             <div className="ui three column grid" style={{ marginTop: 25 }}>
-                {renderedPosts}
+               {props.posts.length > 0 ? renderedPosts : ""}
             </div>
         </div>
     )

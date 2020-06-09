@@ -6,6 +6,7 @@ import {reducer as formReducer} from "redux-form";
 import categoryReducer from './categoryReducer'
 import securityReducer from './securityReducer'
 import recommenderReducer from './recommenderReducer'
+import geniusReducer from './geniusReducer'
 
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
     categoryState: categoryReducer,
     security: securityReducer,
     recommenderState : recommenderReducer,
+    geniusState: geniusReducer,
 });

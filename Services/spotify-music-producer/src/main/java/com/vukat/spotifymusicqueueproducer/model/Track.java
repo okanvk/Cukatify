@@ -16,4 +16,5 @@ public class Track {
     private String lyrics;
     private String lyricsUrl;
     private String definition;
+    private String fullName;
 }

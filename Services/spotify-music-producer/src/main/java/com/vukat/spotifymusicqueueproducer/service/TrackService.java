@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public interface TrackService {
 
-    SpotifyResponse findCurrenlyListeningTrack(User user) throws SpotifyTokenExpiredException;
+    SpotifyResponse findCurrenlyListeningTrack(String token) throws SpotifyTokenExpiredException;
 
     Track assignTrack(SpotifyResponse response);
 

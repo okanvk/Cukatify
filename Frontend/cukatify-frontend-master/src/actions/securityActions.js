@@ -81,6 +81,8 @@ export const setToken = (token) => async dispatch => {
       type: SET_CURRENT_USER,
       payload: decoded
     });
+
+    return decoded
     
   }catch(err){
     localStorage.clear();

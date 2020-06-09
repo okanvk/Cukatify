@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Data
-@Document(value = "ListenedTracks")
+@Document(value = "ListeningStory")
 public class Track {
 
     @Id
@@ -26,6 +26,7 @@ public class Track {
     private String lyrics;
     private String lyricsUrl;
     private String definition;
+    private String fullName;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)

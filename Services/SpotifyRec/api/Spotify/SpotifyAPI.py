@@ -14,7 +14,7 @@ class SpotifyAPIAccess:
         return genres
 
     def find_user_most_listen_songs(self, token):
-        r = requests.get(f"https://api.spotify.com/v1/me/top/tracks", params={"time_range" : "short_term"}, headers={"Authorization": f"Bearer {token}"});
+        r = requests.get(f"https://api.spotify.com/v1/me/top/tracks", params={"time_range" : "medium_term"}, headers={"Authorization": f"Bearer {token}"});
 
         tracks = r.json()['items']
 

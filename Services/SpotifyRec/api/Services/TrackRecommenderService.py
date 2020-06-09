@@ -51,8 +51,10 @@ class TrackRecommender:
         self.init_label_values(tracks)
 
         self.track_repository.save_multiple_tracks_gecici(tracks)
+
         recommended_songs = []
         track_uris = []
+        track_map = []
 
         for track in tracks:
 
@@ -63,8 +65,8 @@ class TrackRecommender:
 
             related_tracks_by_genre = self.track_repository.find_by_genre_and_music_labels(genre_label, audio_label)
 
-            if len(related_tracks_by_genre) > 30:
-                related_tracks_by_genre = random.sample(related_tracks_by_genre, 30)
+            if len(related_tracks_by_genre) > 40:
+                related_tracks_by_genre = random.sample(related_tracks_by_genre, 40)
 
             cos_sim = []
 
@@ -88,18 +90,18 @@ class TrackRecommender:
 
 
             cos_sim_len = len(cos_sim)
-            if cos_sim_len > 4:
-                cos_sim_len = 4
+            if cos_sim_len > 5:
+                cos_sim_len = 5
 
             for most_similar in cos_sim[:cos_sim_len]:
                 similarity, id = most_similar
 
                 selected_track = self.search_track_by_id(id, related_tracks_by_genre)
+                if id not in track_map:
+                    selected_track['_id'] = id
+                    recommended_songs.append(selected_track)
+                    track_map.append(id)
 
-                selected_track['_id'] = id
-
-                recommended_songs.append(selected_track)
-
-        self.spotify_api.create_playlist(token, list(set(track_uris)))
+        #self.spotify_api.create_playlist(token, list(set(track_uris)))
 
         return recommended_songs

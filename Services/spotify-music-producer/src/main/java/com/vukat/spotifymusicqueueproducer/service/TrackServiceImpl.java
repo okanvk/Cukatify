@@ -6,12 +6,16 @@ import com.vukat.spotifymusicqueueproducer.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.parser.Parser;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,14 +40,12 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
-    public SpotifyResponse findCurrenlyListeningTrack(User user) throws SpotifyTokenExpiredException {
+    public SpotifyResponse findCurrenlyListeningTrack(String token) throws SpotifyTokenExpiredException {
 
-        HttpHeaders headers = getHttpHeaders(user.getToken());
+        HttpHeaders headers = getHttpHeaders(token);
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 
-
         ResponseEntity<SpotifyResponse> response = restTemplate.exchange(SPOTIFY_CURRENTLY_PLAYING_URL, HttpMethod.GET, entity, SpotifyResponse.class);
-
 
         return response.getBody();
     }
@@ -69,7 +71,7 @@ public class TrackServiceImpl implements TrackService {
     public Track findCurrentlyListeningTrackLyricsUrl(Track track) throws GeniusTokenExpiredException {
 
         //Genius Token -> don't use manual
-        String token = "UequxdWAlPDIaKlXpzzxQF82UuKgDvreG3FGv3K4C5t4smNhB6HqY5fX3CtYIQUF";
+        String token = "aenUVHhDiLuhFxTM6RddhqZ01mgzUrxp1HUBdWDDJ3JSV2NUYZVDzukKXGMpCm0D";
 
         HttpHeaders headers = getHttpHeaders(token);
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
@@ -105,14 +107,24 @@ public class TrackServiceImpl implements TrackService {
     public Track findTrackLyrics(Track track) throws IOException {
 
         try {
+            if(track.getLyricsUrl() == null || track.getLyricsUrl().equals(""))
+                return track;
+
             String html = Jsoup.connect(track.getLyricsUrl()).get().html();
 
-            Document doc = Jsoup.parse(html);
+            Document doc = Jsoup.parse(html,"", Parser.xmlParser());
 
             String lyrics = doc.select("div.lyrics").text();
 
-            track.setLyrics(lyrics);
 
+            if(lyrics == null || lyrics.equals("")){
+
+                Elements elements = doc.select("div[class~=Lyrics__Container.*$]");
+                for(Element e : elements){
+                    lyrics += e.text();
+                }
+            }
+            track.setLyrics(lyrics);
             return track;
         }catch (Exception e){
             log.warn("Can't find lyrics");

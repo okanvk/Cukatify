@@ -14,4 +14,9 @@ class PostRatingRepository:
             ratings.append(rating)
         return ratings
 
-
+    def getUserRatings(self,user_id):
+        ratings = []
+        for rating in self.post_rating_collection.find({"userId": str(user_id)}):
+            ratings.append(rating)
+            print(1)
+        return len(ratings)

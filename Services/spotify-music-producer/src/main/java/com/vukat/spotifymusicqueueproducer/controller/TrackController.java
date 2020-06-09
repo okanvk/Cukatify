@@ -11,14 +11,13 @@ import com.vukat.spotifymusicqueueproducer.service.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 
 @RestController
+@CrossOrigin
 public class TrackController {
 
     @Autowired
@@ -27,12 +26,12 @@ public class TrackController {
     @Autowired
     private TrackService trackService;
 
-    @PostMapping(value = "/enqueue")
-    public ResponseEntity<?> enqueTrack(@RequestBody User user) {
+    @GetMapping(value = "/enqueue/{token}/{fullName}")
+    public ResponseEntity<?> enqueTrack(@PathVariable String token,@PathVariable String fullName) {
 
         try {
 
-            SpotifyResponse body = trackService.findCurrenlyListeningTrack(user);
+            SpotifyResponse body = trackService.findCurrenlyListeningTrack(token);
 
             Track track = trackService.assignTrack(body);
 
@@ -40,10 +39,11 @@ public class TrackController {
 
             track = trackService.findTrackLyrics(track);
 
+            track.setFullName(fullName);
+
             producerService.enqueuTrack(track);
 
             return ResponseEntity.status(200).body(track);
-
 
         }catch (SpotifyTokenExpiredException e) {
             return ResponseEntity.status(401).body(e.getMessage());
