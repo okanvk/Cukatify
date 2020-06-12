@@ -24,7 +24,7 @@ class Routes extends Component {
               <SecuredRoute  path="/post/add" component={PostAdd}></SecuredRoute>
               <SecuredRoute  path="/post/:id" component={PostView}></SecuredRoute>
               <SecuredRoute exact path="/artistView/:name" component={ArtistView}></SecuredRoute>
-              <SecuredRoute path="*" component={NotFound}></SecuredRoute>
+              <Route path="*" component={NotFound}></Route>
             </Switch>
         )
     }

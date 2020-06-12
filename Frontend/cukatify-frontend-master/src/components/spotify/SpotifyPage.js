@@ -30,7 +30,7 @@ class SpotifyPage extends Component {
   renderRecommendedMusics = () => {
     return this.props.songs.map(song => {
       return (
-        <div className="column">
+        <div className="column"  key = {song.track_href_play}>
           <SpotifySongCard  song_name = {song.track_name} artist_name = {song.artist_name} album_name = {song.album_name} track_href_play = {song.track_href_play}   />
         </div>
       )}
@@ -39,7 +39,7 @@ class SpotifyPage extends Component {
     renderListeningActivity = () => {
       return this.props.listeningActivity.map(song => {
         return (
-          <SpotifyListeningActivityCard  song_name = {song.name} artist_name = {song.artistName} listener = {song.fullName} track_href_play = {song.link}   />
+          <SpotifyListeningActivityCard key = {song.link} song_name = {song.name} artist_name = {song.artistName} listener = {song.fullName} track_href_play = {song.link}   />
         )
       })
     }

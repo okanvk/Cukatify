@@ -60,24 +60,24 @@ class Login extends Component {
 
 
         return (
-            <div className="ui middle aligned center aligned grid" >
+            <div className="ui middle aligned center aligned grid" style={{marginTop: 10}} >
                 <div className="column">
                     <h2 className="ui grey image header">
                         <div className="content">
                             Log-in to your account
                         </div>
                     </h2>
+                    <div className="ui stacked segment">
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-                        <div className="ui stacked segment">
                         <Field name="username" component={this.renderEmail} label="Email" />
                         <Field name="password" component={this.renderPassword} label="Password" />
-                            <button className="ui fluid large grey submit button">Login</button>
-                            <button onClick = {this.signInWithSpotify}  style = {{marginTop : 15}} className="ui fluid large grey submit grey button">
-                            <i className="spotify icon"></i>
-                            Sign With Spotify
-                        </button>
-                        </div>
+                        <button style={{marginTop: 10}} className="ui fluid large grey submit button">Login</button>
                     </form>
+                    <button onClick = {this.signInWithSpotify}  style = {{marginTop : 15}} className="ui fluid large green button">
+                    <i className="spotify icon"></i>
+                    Sign With Spotify
+                </button>
+                    </div>
                 </div>
             </div>
         )

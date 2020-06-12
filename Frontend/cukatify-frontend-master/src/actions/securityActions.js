@@ -76,7 +76,7 @@ export const setToken = (token) => async dispatch => {
 
     const decoded = jwt_decode(token);
 
-
+    console.log(decoded)
     dispatch({
       type: SET_CURRENT_USER,
       payload: decoded
@@ -106,11 +106,15 @@ export const setJWTToken = token => {
 
 export const logout = () => 
       async (dispatch) => {
-        localStorage.removeItem("jwtToken");
-        setJWTToken(false);
-        console.log("logout")
-        dispatch({
-            type: SET_CURRENT_USER,
-            payload: {}
-          });
+        try {
+          localStorage.removeItem("jwtToken");
+          setJWTToken(false);
+          dispatch({
+              type: SET_CURRENT_USER,
+              payload: {user: {},
+              validToken: false}
+            });
+        }catch(err){
+          console.log(err)
+        }
     }

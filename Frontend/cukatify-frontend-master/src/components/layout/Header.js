@@ -11,9 +11,10 @@ class Header extends Component {
 
 
     logout = () => {
-        console.log(1)
-        this.props.logout();
-        window.location.href = "/login";
+        this.props.logout().then(result => {
+            window.location.href = "/login";
+        });
+        
       }
 
     render() {
@@ -27,10 +28,10 @@ class Header extends Component {
           );
 
         const userIsAuthenticated = (
-            <NavLink onClick={logout}
-            to="/Login" className = "ui button" style = {{marginLeft: 25}}>
+            <button onClick={this.logout}
+             className = "ui button" style = {{marginLeft: 25}}>
                              Logout
-                            </NavLink>
+                            </button>
           );
 
         if (validToken && user) {
@@ -47,14 +48,14 @@ class Header extends Component {
                         <ul>
                             <li>
                                 <NavLink to="/post/list" exact activeClassName="active-link">
-                                    Home
+                                    Posts
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/pictures" exact activeClassName="active-link">Pictures</NavLink>
+                                <NavLink to="/spotify" exact activeClassName="active-link">Spotify Page</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/time" exact activeClassName="active-link">Time</NavLink>
+                                <NavLink to="/time" exact activeClassName="active-link">About</NavLink>
                             </li>
                         </ul>
                     </nav>
