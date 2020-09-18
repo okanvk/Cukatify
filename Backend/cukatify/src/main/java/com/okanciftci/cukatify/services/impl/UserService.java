@@ -1,14 +1,21 @@
 package com.okanciftci.cukatify.services.impl;
 
 
+import com.okanciftci.cukatify.common.enums.RoleNames;
+import com.okanciftci.cukatify.entities.mongo.Role;
 import com.okanciftci.cukatify.entities.mongo.User;
 import com.okanciftci.cukatify.exceptions.UsernameAlreadyExistsException;
+import com.okanciftci.cukatify.persistence.mongo.RoleRepository;
 import com.okanciftci.cukatify.persistence.mongo.UserRepository;
+import com.okanciftci.cukatify.services.abstr.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -19,15 +26,33 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private RoleService roleService;
 
+    public List<User> getUsers(){
+        return userRepository.findAll();
+    }
+
+    public User saveSpotifyUser(User user){
+        try{
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setActive(true);
+            return userRepository.save(user);
+        }catch(DuplicateKeyException e){
+            throw new UsernameAlreadyExistsException("This email is already exists.");
+        }
+    }
 
 
     public User saveUser(User newUser){
         try{
             newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+            Role role = roleService.getRoleByName(RoleNames.USER.name());
+            newUser.addRole(role);
+            newUser.setActive(true);
             return userRepository.save(newUser);
         }catch(DuplicateKeyException e){
-            throw new UsernameAlreadyExistsException("This username is already exists.");
+            throw new UsernameAlreadyExistsException("This email is already exists.");
         }
     }
 
@@ -45,12 +70,23 @@ public class UserService {
 
     }
 
+    public boolean toggleUser(String username) {
+
+        User user = userRepository.findByUsername(username);
+
+        if(user != null){
+            user.setActive(!user.isActive());
+            userRepository.save(user);
+        }else{
+            throw new UsernameNotFoundException("Email not found.");
+        }
+        return true;
+    }
+
     public User updateUser(User newUser){
 
         try{
-
             User updatedUser = userRepository.getById(newUser.getId().toString());
-
             updatedUser.setFullName(newUser.getFullName());
             updatedUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
 

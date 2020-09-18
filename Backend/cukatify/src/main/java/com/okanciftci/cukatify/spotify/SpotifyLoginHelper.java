@@ -30,7 +30,7 @@ public class SpotifyLoginHelper {
                 .setRedirectUri(redirectUri)
                 .build();
         AuthorizationCodeUriRequest authorizationCodeUriRequest = spotifyApi.authorizationCodeUri()
-                .scope("user-read-email user-read-private user-top-read user-read-recently-played playlist-modify-public user-read-playback-position user-library-read playlist-modify-private user-read-currently-playing playlist-read-collaborative playlist-read-private user-follow-read")
+                .scope("user-read-email user-read-private user-top-read user-read-recently-played playlist-modify-public user-read-playback-position user-library-read playlist-modify-private user-read-currently-playing playlist-read-collaborative ")
                 .build();
         try {
             final URI authorizationCodeCredentials = authorizationCodeUriRequest.execute();

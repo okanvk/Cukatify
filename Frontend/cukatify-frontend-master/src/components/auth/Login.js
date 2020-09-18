@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
+import {  NavLink } from "react-router-dom";
+
 import { login, getSpotifyLoginURI, logout } from '../../actions/securityActions'
 
 
@@ -73,9 +75,10 @@ class Login extends Component {
                         <Field name="password" component={this.renderPassword} label="Password" />
                         <button style={{marginTop: 10}} className="ui fluid large grey submit button">Login</button>
                     </form>
+                    <NavLink style={{marginTop: 10}} exact to="/register" className="ui fluid large grey submit button">Register</NavLink>
                     <button onClick = {this.signInWithSpotify}  style = {{marginTop : 15}} className="ui fluid large green button">
                     <i className="spotify icon"></i>
-                    Sign With Spotify
+                    Login With Spotify
                 </button>
                     </div>
                 </div>

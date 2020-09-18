@@ -7,6 +7,7 @@ import categoryReducer from './categoryReducer'
 import securityReducer from './securityReducer'
 import recommenderReducer from './recommenderReducer'
 import geniusReducer from './geniusReducer'
+import userReducer from './userReducer'
 
 
 export default combineReducers({
@@ -14,6 +15,7 @@ export default combineReducers({
     artistState: artistReducer,
     form : formReducer,
     categoryState: categoryReducer,
+    userState: userReducer,
     security: securityReducer,
     recommenderState : recommenderReducer,
     geniusState: geniusReducer,

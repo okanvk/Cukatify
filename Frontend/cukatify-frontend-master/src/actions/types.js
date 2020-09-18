@@ -9,7 +9,9 @@ export const GET_CATEGORIES = 'GET_CATEGORIES';
 
 export const UPDATE_USER = "UPDATE_USER";
 export const GET_USER = "GET_USER";
+export const GET_USERS = "GET_USERS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
 export const GET_ERRORS = "GET_ERRORS";
 
 export const GET_REC_POSTS = "GET_REC_POSTS";

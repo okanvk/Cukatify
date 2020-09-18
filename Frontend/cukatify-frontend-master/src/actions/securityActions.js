@@ -8,10 +8,10 @@ import jwt_decode from "jwt-decode";
 
 export const createNewUser = (newUser, history) => async dispatch => {
   try {
-    await springapi.post("/users/register", newUser);
-    history.push("/login");
+    await springapi.post("/users/register", newUser)
   } catch (err) {
     console.log(err)
+    history.push("/register?err=1")
   }
 };
 
@@ -54,13 +54,19 @@ export const login = (LoginRequest,history) => async dispatch => {
     setJWTToken(token);
 
     const decoded = jwt_decode(token);
-
+    
+    console.log(decoded)
     dispatch({
       type: SET_CURRENT_USER,
       payload: decoded
     });
 
+
+    if(decoded.scopes.includes("ADMIN")){
+      history.push("/user/list")
+    }else{
     history.push("/post/list/0")
+    }
     
   } catch (err) {
     console.log(err)

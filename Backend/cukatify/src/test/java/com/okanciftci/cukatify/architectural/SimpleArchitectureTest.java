@@ -31,7 +31,7 @@ public class SimpleArchitectureTest {
             .whereLayer("Service").mayOnlyBeAccessedByLayers("Controller","Service","Security","Test")
             .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Service","Test");
 
-
+    // acegi
 
     @ArchTest
     static final ArchRules NAMING_CONVENTION_RULES = ArchRules.in(NamingConventionTest.class);

@@ -95,7 +95,7 @@ public class SpotifyController {
 
             newSystemUser.addRole(role);
 
-            userService.saveUser(newSystemUser);
+            userService.saveSpotifyUser(newSystemUser);
 
             try {
                 Authentication authentication = authenticationManager.authenticate(

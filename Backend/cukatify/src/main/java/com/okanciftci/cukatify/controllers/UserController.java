@@ -9,12 +9,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.util.List;
 
 import static com.okanciftci.cukatify.security.SecurityConstants.TOKEN_PREFIX;
 
@@ -45,6 +48,7 @@ public class UserController {
                             loginRequest.getUsername(),
                             loginRequest.getPassword()
                     )
+
             );
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -62,17 +66,33 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user){
-
-        User newUser = userService.saveUser(user);
-
-        return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
-
+        try {
+            User newUser = userService.saveUser(user);
+            return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
-    @GetMapping("/")
-    public ResponseEntity<?> saveUser(){
-
-        return new ResponseEntity(null,HttpStatus.OK);
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public ResponseEntity<?> getUsers(){
+        List<User> users = userService.getUsers();
+        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/toggle/{username}",method = RequestMethod.PATCH)
+    public ResponseEntity<?> toggleUser(@PathVariable String username){
+
+       try{
+           boolean state = userService.toggleUser(username);
+           return new ResponseEntity<Boolean>(state,HttpStatus.OK);
+       }catch (Exception e){
+           log.error(e.getMessage());
+           return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+       }
+    }
+
+
 
 }

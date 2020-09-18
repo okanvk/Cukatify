@@ -43,7 +43,11 @@ public class User implements UserDetails {
 
     private String accessToken;
 
+    private boolean isActive;
+
     private String spotifyId;
+
+    private Integer age;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -51,6 +55,7 @@ public class User implements UserDetails {
     private LocalDateTime created_At;
 
     @DBRef(lazy = true)
+    @JsonIgnore
     private List<Role> role_ids;
 
     public User() {
@@ -104,4 +109,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
 }
