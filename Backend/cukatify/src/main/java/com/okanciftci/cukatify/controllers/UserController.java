@@ -43,19 +43,24 @@ public class UserController {
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest){
 
         try{
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            loginRequest.getUsername(),
-                            loginRequest.getPassword()
-                    )
+            boolean isValid = userService.checkActive(loginRequest.getUsername());
+            if(isValid) {
+                Authentication authentication = authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(
+                                loginRequest.getUsername(),
+                                loginRequest.getPassword()
+                        )
 
-            );
+                );
 
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication);
+                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication);
 
-            return ResponseEntity.ok(new LoginSuccessResponse(true,jwt));
+                return ResponseEntity.ok(new LoginSuccessResponse(true, jwt));
+            }else{
+                return ResponseEntity.badRequest().body(false);
+            }
 
         }catch (Exception e){
             log.error("Exception " + e.getMessage());
@@ -75,23 +80,6 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public ResponseEntity<?> getUsers(){
-        List<User> users = userService.getUsers();
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/toggle/{username}",method = RequestMethod.PATCH)
-    public ResponseEntity<?> toggleUser(@PathVariable String username){
-
-       try{
-           boolean state = userService.toggleUser(username);
-           return new ResponseEntity<Boolean>(state,HttpStatus.OK);
-       }catch (Exception e){
-           log.error(e.getMessage());
-           return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-       }
-    }
 
 
 

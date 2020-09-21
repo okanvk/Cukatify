@@ -28,7 +28,9 @@ public class Post {
 
     private String description;
 
-    private Integer rating;
+    private Float rating;
+
+    private Float totalRating;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -45,7 +47,7 @@ public class Post {
     private Category category;
 
 
-    public Post(String content, LocalDateTime createdAt, boolean isApproved,Category category,Integer rating,String title) {
+    public Post(String content, LocalDateTime createdAt, boolean isApproved,Category category,Float rating,String title) {
         this.content = content;
         this.rating = rating;
         this.createdAt = createdAt;

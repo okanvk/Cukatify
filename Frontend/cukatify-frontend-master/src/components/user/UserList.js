@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { getUsers,toggleUser} from '../../actions/userActions'
+import { getUsers,toggleUser,makeAdmin} from '../../actions/userActions'
 
 class UserList extends Component {
 
@@ -10,19 +10,26 @@ class UserList extends Component {
     }
 
     toggle = (username) => {
-      this.props.toggleUser(username)
-      
+      this.props.toggleUser(username,this.props.history)
+
+    }
+    makeAdmin = (username) => {
+      this.props.makeAdmin(username,this.props.history)
     }
 
     componentDidUpdate(prevProps, prevState){
-      this.props.getUsers()
+      if(prevProps.match.params.name !== this.props.match.params.name){
+        this.props.getUsers()
     }
+  }
+
+    
 
     renderList() {
       return this.props.users.map(user => {
           const systemState = user.active ? "Make Passive" : "Make Active"
           const spotifyState = user.spotifyUser ? "positive" : "error"
-          const icon = user.spotifyUser ? <i class="thumbs up outline icon"></i> : <i class="thumbs down outline icon"></i>
+          const icon = user.spotifyUser ? <i className="thumbs up outline icon"></i> : <i className="thumbs down outline icon"></i>
           return  <tr key={user.username} className={user.active ? "" : "error"}>
           <td>{user.fullName}</td>
           <td>{user.username}</td>
@@ -32,7 +39,7 @@ class UserList extends Component {
           </td>
           <td>
             <button className="small green ui button" onClick={() => this.toggle(user.username)}>{systemState}</button>
-            <button className="small blue ui button">Make Admin</button>
+            <button className="small blue ui button" onClick={() => this.makeAdmin(user.username)}>Make Admin</button>
           </td>
         </tr>
       })
@@ -78,5 +85,5 @@ const mapStateToProps = ({ userState }) => {
 }
 
 export default connect(mapStateToProps, {
-    getUsers,toggleUser,
+    getUsers,toggleUser,makeAdmin,
 })(UserList)

@@ -5,9 +5,11 @@ import com.okanciftci.cukatify.common.ValidationType;
 
 import com.okanciftci.cukatify.entities.mongo.Category;
 import com.okanciftci.cukatify.entities.mongo.Post;
+import com.okanciftci.cukatify.entities.mongo.Rating;
 import com.okanciftci.cukatify.models.mongo.PostModel;
 import com.okanciftci.cukatify.persistence.mongo.CategoryRepository;
 import com.okanciftci.cukatify.persistence.mongo.PostRepository;
+import com.okanciftci.cukatify.persistence.mongo.RatingRepository;
 import com.okanciftci.cukatify.services.abstr.CategoryService;
 import com.okanciftci.cukatify.services.abstr.PostService;
 import org.springframework.beans.BeanUtils;
@@ -32,6 +34,9 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private RatingRepository ratingRepository;
 
     @Override
     public List<Post> takeAllPostsApproved() {
@@ -71,6 +76,20 @@ public class PostServiceImpl implements PostService {
         postModel.setId(post.getId());
 
         return postModel;
+    }
+
+    @Override
+    public Post findPostTotalRating(Post post){
+
+        List<Rating> ratings = ratingRepository.findPostRatings(post.getId());
+
+        long ratingSize = ratings.size();
+
+        Float sumOfRatings = ratings.stream().map(Rating::getRating).reduce(0.f, Float::sum);
+
+        post.setTotalRating(sumOfRatings / ratingSize);
+
+        return post;
     }
 
 

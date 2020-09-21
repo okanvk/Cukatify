@@ -83,6 +83,30 @@ public class UserService {
         return true;
     }
 
+    public boolean makeAdmin(String username) {
+
+        User user = userRepository.findByUsername(username);
+
+        if(user != null){
+            Role role = roleService.getRoleByName(RoleNames.ADMIN.name());
+            user.addRole(role);
+            userRepository.save(user);
+        }else{
+            throw new UsernameNotFoundException("Email not found.");
+        }
+        return true;
+    }
+
+    public boolean checkActive(String username){
+        User user = userRepository.findByUsername(username);
+
+        if(user != null){
+            return user.isActive();
+        }else{
+            throw new UsernameNotFoundException("Email not found.");
+        }
+    }
+
     public User updateUser(User newUser){
 
         try{

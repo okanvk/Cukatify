@@ -43,3 +43,8 @@ export const savePost = (formData) =>
     })
   }
 
+  export const rateAPost = (post_id,rating) => 
+  async (dispatch) => {
+    await springapi.patch(`/posts/rate/${post_id}/${rating}`)
+    
+}

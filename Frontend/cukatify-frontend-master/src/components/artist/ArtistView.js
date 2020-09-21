@@ -73,7 +73,12 @@ class ArtistView extends Component {
                     </div>
                 </div>
             </div>
+            <h4 className="ui horizontal divider header basic segment">
+            <i className="tag icon"></i>
+          Here is related artists according to {this.props.artist.name}
+          </h4>
             <div className="ui four column doubling stackable grid container">
+            
             {relatedThingList.length !== 0 ? this.renderRelatedThings(relatedThingList) : <div>
                 -
             </div>}

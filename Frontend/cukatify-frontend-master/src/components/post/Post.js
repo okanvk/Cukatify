@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
-import StarList from "../star/StarList"
 import {Link} from 'react-router-dom';
+import 'react-rater/lib/react-rater.css'
 
 class Post extends Component {
 
@@ -23,7 +23,8 @@ class Post extends Component {
                         <div className="meta"><span className="date">{createdAt}</span></div>
                         <div className="meta"><span className="text">Category : {category.name}</span></div>
                         <Link to = {`/post/${id}`} className="ui primary basic button right floated">View Post</Link>
-                        <StarList rating = {rating} marginTop={1} />
+
+                    
                     </div>
 
                 </div>

@@ -9,6 +9,7 @@ import com.okanciftci.cukatify.spotify.abstr.SpotifyAPIService;
 import com.okanciftci.cukatify.spotify.SpotifyLoginHelper;
 import com.wrapper.spotify.SpotifyHttpManager;
 import com.wrapper.spotify.model_objects.specification.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 
@@ -32,6 +33,7 @@ import static com.okanciftci.cukatify.security.SecurityConstants.TOKEN_PREFIX;
 @RestController
 @RequestMapping("/spotify")
 @CrossOrigin
+@Slf4j
 public class SpotifyController {
 
     @Autowired
@@ -71,48 +73,55 @@ public class SpotifyController {
 
         com.okanciftci.cukatify.entities.mongo.User systemUser = userService.getUser(spotifyUser.getEmail());
 
+
+
         if(systemUser == null){
+            boolean isValid = userService.checkActive(systemUser.getUsername());
+            if(isValid) {
+                com.okanciftci.cukatify.entities.mongo.User newSystemUser = new com.okanciftci.cukatify.entities.mongo.User();
 
-            com.okanciftci.cukatify.entities.mongo.User newSystemUser = new com.okanciftci.cukatify.entities.mongo.User();
+                newSystemUser.setUsername(spotifyUser.getEmail());
 
-            newSystemUser.setUsername(spotifyUser.getEmail());
+                newSystemUser.setSpotifyUser(true);
 
-            newSystemUser.setSpotifyUser(true);
+                newSystemUser.setAccessToken(token);
 
-            newSystemUser.setAccessToken(token);
+                newSystemUser.setFullName(spotifyUser.getDisplayName());
 
-            newSystemUser.setFullName(spotifyUser.getDisplayName());
+                newSystemUser.setPassword(SpotifyLoginHelper.staticPass);
 
-            newSystemUser.setPassword(SpotifyLoginHelper.staticPass);
+                newSystemUser.setSpotifyId(spotifyUser.getId());
 
-            newSystemUser.setSpotifyId(spotifyUser.getId());
+                Role role = roleService.getRoleByName(RoleNames.SPOTIFY_USER.name());
 
-            Role role = roleService.getRoleByName(RoleNames.SPOTIFY_USER.name());
+                newSystemUser.addRole(role);
 
-            newSystemUser.addRole(role);
+                role = roleService.getRoleByName(RoleNames.USER.name());
 
-            role = roleService.getRoleByName(RoleNames.USER.name());
+                newSystemUser.addRole(role);
 
-            newSystemUser.addRole(role);
+                userService.saveSpotifyUser(newSystemUser);
 
-            userService.saveSpotifyUser(newSystemUser);
+                try {
+                    Authentication authentication = authenticationManager.authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    newSystemUser.getUsername(),
+                                    SpotifyLoginHelper.staticPass
+                            )
+                    );
 
-            try {
-                Authentication authentication = authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(
-                                newSystemUser.getUsername(),
-                                SpotifyLoginHelper.staticPass
-                        )
-                );
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token,spotifyUser.getDisplayName());
 
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token,spotifyUser.getDisplayName());
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.add("Location", "http://localhost:3000/spotify#"+jwt);
+                    return new ResponseEntity(headers, HttpStatus.FOUND);
+                }catch (Exception e){
+                    return new ResponseEntity(e.getMessage(), HttpStatus.FOUND);
+                }
+            }else{
 
-                HttpHeaders headers = new HttpHeaders();
-                headers.add("Location", "http://localhost:3000/spotify#"+jwt);
-                return new ResponseEntity(headers, HttpStatus.FOUND);
-            }catch (Exception e){
-                return new ResponseEntity(e.getMessage(), HttpStatus.FOUND);
+                return ResponseEntity.badRequest().body(false);
             }
         }else{
                 systemUser.setAccessToken(token);

@@ -4,9 +4,11 @@ import com.okanciftci.cukatify.common.ResponseEnum;
 import com.okanciftci.cukatify.common.ResponsePayload;
 import com.okanciftci.cukatify.common.service.impl.FileStorageServiceImpl;
 import com.okanciftci.cukatify.entities.mongo.Post;
+import com.okanciftci.cukatify.entities.mongo.Rating;
 import com.okanciftci.cukatify.models.mongo.CategoryModel;
 import com.okanciftci.cukatify.models.mongo.PostModel;
 import com.okanciftci.cukatify.services.abstr.PostService;
+import com.okanciftci.cukatify.services.abstr.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -34,6 +36,9 @@ public class PostController {
     @Autowired
     private FileStorageServiceImpl fileStorageService;
 
+    @Autowired
+    private RatingService ratingService;
+
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ResponsePayload bringPosts () {
             List<Post> posts = postService.takeAllPostsApproved();
@@ -49,11 +54,32 @@ public class PostController {
         return new ResponsePayload(ResponseEnum.OK,posts);
     }
 
-    //@PreAuthorize("hasRole('USER')")
     @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-    public ResponsePayload findPostById (@PathVariable String id) {
-        Post post = postService.findById(id);
-        return new ResponsePayload(ResponseEnum.OK,post);
+    public ResponsePayload findPostById (@PathVariable String id,Principal principal) {
+        try{
+            String username = principal.getName();
+            Post post = postService.findById(id);
+            post = postService.findPostTotalRating(post);
+            Rating rating = ratingService.findUserRating(username,post);
+            if(rating != null)
+                post.setRating(rating.getRating());
+            else
+                post.setRating(0.f);
+            return new ResponsePayload(ResponseEnum.OK,post);
+
+        }catch (Exception e) {
+            return new ResponsePayload(ResponseEnum.BADREQUEST,null);
+        }
+    }
+
+    @RequestMapping(value = "/rate/{rating}/{post_id}", method = RequestMethod.PATCH)
+    public ResponsePayload ratePostById (@PathVariable String post_id,@PathVariable Float rating,Principal principal) {
+        try {
+            boolean isSuccess = ratingService.ratePostByUserId(post_id,rating,principal.getName());
+            return new ResponsePayload(ResponseEnum.OK,isSuccess);
+       }catch (Exception e){
+            return new ResponsePayload(ResponseEnum.BADREQUEST,false);
+        }
     }
 
     @RequestMapping(value = "/findImage/{id}", method = RequestMethod.GET)
@@ -79,6 +105,7 @@ public class PostController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
+
     @RequestMapping(value = "/save",method = RequestMethod.POST,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponsePayload uploadFile(@RequestParam MultipartFile file,@RequestParam String title,@RequestParam String content,@RequestParam String description,@RequestParam boolean isApproved,@RequestParam String categoryId) {
 

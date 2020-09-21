@@ -63,7 +63,7 @@ export const login = (LoginRequest,history) => async dispatch => {
 
 
     if(decoded.scopes.includes("ADMIN")){
-      history.push("/user/list")
+      history.push("/user/list/"+Math.random())
     }else{
     history.push("/post/list/0")
     }

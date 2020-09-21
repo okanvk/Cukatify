@@ -36,7 +36,7 @@ class Register extends Component {
             <div className={className}>
             <div className="ui left icon input">
                 <i className="user icon"></i>
-                <input {...input} placeholder = {label} type = "age" />
+                <input {...input} placeholder = {label} type = "number" />
             </div>
                 {this.renderError(meta)}
             </div>
@@ -48,7 +48,7 @@ class Register extends Component {
             <div className={className}>
             <div className="ui left icon input">
                 <i className="user icon"></i>
-                <input {...input} placeholder = {label} type = "name" />
+                <input  {...input} placeholder = {label} type = "text" />
             </div>
                 {this.renderError(meta)}
             </div>
@@ -61,7 +61,7 @@ class Register extends Component {
             <div className={className}>
             <div className="ui left icon input">
                 <i className="key icon"></i>
-                <input {...input} placeholder = {label} type = "password" />
+                <input  {...input} placeholder = {label} type = "password" />
             </div>
                 {this.renderError(meta)}
             </div>

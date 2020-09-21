@@ -16,4 +16,6 @@ public interface PostService extends ValidationInterface<PostModel> {
 
     PostModel savePost(PostModel postModel);
 
+    Post findPostTotalRating(Post post);
+
 }
