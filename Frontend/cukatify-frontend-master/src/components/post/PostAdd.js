@@ -93,7 +93,9 @@ class PostAdd extends Component {
             formData.append('isApproved',formProps.isApproved);
         }
         formData.append('categoryId',formProps.categoryModel.id)
-        this.props.savePost(formData)
+        this.props.savePost(formData).then(result => {
+            this.props.history.push("/post/menu/1")
+        })
     }
 
 
@@ -102,7 +104,12 @@ class PostAdd extends Component {
 
 
         return (
+            
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
+            <h4 className="ui horizontal divider header basic segment">
+            <i className="tag icon"></i>
+          Here is the add page for post.
+          </h4>
                 <Field name="title" component={this.renderInput} label="Enter Title" />
                 <Field name="content" component={this.renderInput} label="Enter Content" />
                 <Field name="description" component={this.renderInput} label="Enter Description" />

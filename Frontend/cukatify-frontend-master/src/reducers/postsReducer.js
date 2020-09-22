@@ -1,5 +1,5 @@
 
-import {GET_POSTS, GET_SELECTED_POST,SAVE_POST} from '../actions/types' 
+import {GET_POSTS, GET_SELECTED_POST,SAVE_POST,UPDATE_POST} from '../actions/types' 
 
 const initialState = {
     posts: [],
@@ -9,7 +9,8 @@ const initialState = {
             name : "Noname"
         }
     },
-    savedPost : {}
+    savedPost : {},
+    updatedPost : {}
   };
   
 
@@ -31,6 +32,11 @@ export default (state = initialState,action) => {
                 ...state,
                 savedPost : action.payload
             };
+        case UPDATE_POST:
+                return {
+                    ...state,
+                    updatedPost : action.payload
+                };
         default:
             return state;
     }

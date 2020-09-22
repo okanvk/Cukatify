@@ -19,8 +19,8 @@ class Header extends Component {
 
     render() {
         const { validToken, user } = this.props.security;
-
-        let headerLinks;
+        let headerLinks
+        let headerState
         const userIsNotAuthenticated = (
             <NavLink exact to="/login" className="ui button" style={{ marginLeft: 25 }}>
                 Sign In
@@ -29,40 +29,88 @@ class Header extends Component {
 
         const userIsAuthenticated = (
             <div className="item">
-            <SearchBar />
-            <button onClick={this.logout}
-                className="ui button" style={{ marginLeft: 25 }}>
-                Logout
+                <SearchBar />
+                <button onClick={this.logout}
+                    className="ui button" style={{ marginLeft: 25 }}>
+                    Logout
             </button>
             </div>
         );
 
-        let headerState = (
-            <ul>
-            
-            </ul>
-        );
 
-        const userIsAuthenticatedState = (
+
+
+
+        const userIsNormalUser = (
             <ul>
                 <li>
                     <NavLink to="/post/list" exact activeClassName="active-link">
                         Posts
-            </NavLink>
+             </NavLink>
+                </li>
+
+            </ul>
+        )
+
+        const userIsSpotifyUser = (
+            <ul>
+                <li>
+                    <NavLink to="/post/list" exact activeClassName="active-link">
+                        Posts
+                    </NavLink>
+                </li>
+                
+                <li>
+                    <NavLink to="/post/list" exact activeClassName="active-link">
+                        Spotify Page
+                    </NavLink>
+                </li>
+                
+
+            </ul>
+        )
+        /* SPOTIFY NAVIGATION CHECK */
+
+        const userIsAdminUser = (
+            <ul>
+                <li>
+                    <NavLink to="/post/list" exact activeClassName="active-link">
+                        Posts
+                 </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/spotify" exact activeClassName="active-link">Spotify Page</NavLink>
+                    <NavLink to="/post/menu/1" exact activeClassName="active-link">
+                        Post Panel
+                 </NavLink>
                 </li>
+                <li>
+                    <NavLink to="/user/list/1" exact activeClassName="active-link">
+                        User Panel
+                 </NavLink>
+                </li>
+
             </ul>
-        );
+        )
+
+
 
 
         if (validToken && user) {
+            if (user.scopes.includes("ADMIN")) {
+                if (user.scopes.includes("SPOTIFY")) {
+                    headerState = userIsSpotifyUser
+                } else {
+                    headerState = userIsAdminUser
+                }
+            } else {
+                headerState = userIsNormalUser
+            }
             headerLinks = userIsAuthenticated;
-            headerState = userIsAuthenticatedState
         } else {
             headerLinks = userIsNotAuthenticated;
         }
+
+
 
         return (
             <div className="width_header">
@@ -70,9 +118,11 @@ class Header extends Component {
                     <div className="ui inverted secondary menu">
                         <nav>
                             {headerState}
+
                         </nav>
-                        <div className="right menu">                                
-                                {headerLinks}
+                        <div className="right menu">
+                            {headerLinks}
+
                         </div>
                     </div>
                 </div>

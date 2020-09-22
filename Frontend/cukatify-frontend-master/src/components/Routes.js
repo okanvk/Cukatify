@@ -12,6 +12,8 @@ import SecuredRoute from "../utils/SecuredRoute";
 import SpotifyPage from './spotify/SpotifyPage';
 import UserList from './user/UserList'
 import AdminRoute from '../utils/AdminRoute';
+import PostMenu from './post/PostMenu'
+import PostUpdate from './post/PostUpdate'
 
 
 
@@ -25,7 +27,9 @@ class Routes extends Component {
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/spotify" component={SpotifyPage}></Route>
             <AdminRoute exact path="/user/list/:name" component={UserList}></AdminRoute>
+            <AdminRoute exact path="/post/menu/:name" component={PostMenu}></AdminRoute>
               <SecuredRoute  path="/post/list/:id" component={PostList}></SecuredRoute>
+              <SecuredRoute  path="/post/update/:id/:title" component={PostUpdate}></SecuredRoute>
               <SecuredRoute  path="/post/add" component={PostAdd}></SecuredRoute>
               <SecuredRoute  path="/post/:id" component={PostView}></SecuredRoute>
               <SecuredRoute exact path="/artistView/:name" component={ArtistView}></SecuredRoute>

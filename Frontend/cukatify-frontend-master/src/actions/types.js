@@ -7,6 +7,8 @@ export const GET_ARTIST = 'GET_ARTIST';
 
 export const GET_CATEGORIES = 'GET_CATEGORIES';
 
+export const UPDATE_POST = 'UPDATE_POST'
+
 export const UPDATE_USER = "UPDATE_USER";
 export const GET_USER = "GET_USER";
 export const GET_USERS = "GET_USERS";

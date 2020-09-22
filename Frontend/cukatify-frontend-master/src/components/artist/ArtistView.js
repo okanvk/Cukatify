@@ -18,9 +18,10 @@ class ArtistView extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
+
         if(prevProps.match.params.name !== this.props.match.params.name){
             const artistName = this.props.match.params.name
-            this.props.getArtist(artistName);
+            this.props.getArtist(artistName,this.props.history);
         }
       }
 

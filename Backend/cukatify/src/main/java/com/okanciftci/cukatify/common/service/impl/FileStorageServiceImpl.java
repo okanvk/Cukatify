@@ -26,8 +26,7 @@ public class FileStorageServiceImpl {
 
     @Autowired
     public FileStorageServiceImpl(FileStorageProperties fileStorageProperties) {
-        this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
-                .toAbsolutePath().normalize();
+        this.fileStorageLocation = Paths.get("/Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify/src/main/resources/static/uploads");
 
         try {
             Files.createDirectories(this.fileStorageLocation);
@@ -36,9 +35,9 @@ public class FileStorageServiceImpl {
         }
     }
 
-    public String storeFile(MultipartFile file) {
+    public String storeFile(MultipartFile file,String postId) {
         // Normalize file name
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = postId + ".jpg";
 
         try {
             // Check if the file's name contains invalid characters

@@ -9,9 +9,11 @@ import com.okanciftci.cukatify.models.mongo.CategoryModel;
 import com.okanciftci.cukatify.models.mongo.PostModel;
 import com.okanciftci.cukatify.services.abstr.PostService;
 import com.okanciftci.cukatify.services.abstr.RatingService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,6 +29,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/posts")
+@Slf4j
 public class PostController {
 
 
@@ -43,6 +46,13 @@ public class PostController {
     public ResponsePayload bringPosts () {
             List<Post> posts = postService.takeAllPostsApproved();
             return new ResponsePayload(ResponseEnum.OK,posts);
+
+    }
+
+    @RequestMapping(value = "/findAllStatePosts", method = RequestMethod.GET)
+    public ResponsePayload bringPostsAllState () {
+        List<Post> posts = postService.takeAllPostsAllState();
+        return new ResponsePayload(ResponseEnum.OK,posts);
 
     }
 
@@ -82,6 +92,18 @@ public class PostController {
         }
     }
 
+    @RequestMapping(value = "/toggle/{id}",method = RequestMethod.PATCH)
+    public ResponseEntity<?> toggleUser(@PathVariable String id){
+
+        try{
+            boolean state = postService.togglePost(id);
+            return new ResponseEntity<Boolean>(state, HttpStatus.OK);
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @RequestMapping(value = "/findImage/{id}", method = RequestMethod.GET)
     public ResponseEntity findPostImageById (@PathVariable String id, HttpServletRequest request) {
         Post post = postService.findById(id);
@@ -107,7 +129,7 @@ public class PostController {
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponsePayload uploadFile(@RequestParam MultipartFile file,@RequestParam String title,@RequestParam String content,@RequestParam String description,@RequestParam boolean isApproved,@RequestParam String categoryId) {
+    public ResponsePayload save(@RequestParam MultipartFile file,@RequestParam String title,@RequestParam String content,@RequestParam String description,@RequestParam boolean isApproved,@RequestParam String categoryId) {
 
         try{
             PostModel postModel = new PostModel();
@@ -119,16 +141,44 @@ public class PostController {
             categoryModel.setId(categoryId);
             postModel.setCategoryModel(categoryModel);
 
-            String fileName = fileStorageService.storeFile(file);
+            PostModel savedPost = postService.savePost(postModel);
+
+            String fileName = fileStorageService.storeFile(file,savedPost.getId());
+
             postModel.setFileName(fileName);
 
-            PostModel savedPost = postService.savePost(postModel);
+
 
             return new ResponsePayload(ResponseEnum.OK,savedPost);
         }catch (Exception e){
             return new ResponsePayload(ResponseEnum.BADREQUEST);
         }
+    }
 
+    @RequestMapping(value = "/update",method = RequestMethod.POST,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponsePayload update(@RequestParam MultipartFile file,@RequestParam String title,@RequestParam String content,@RequestParam String description,@RequestParam boolean isApproved,@RequestParam String id,@RequestParam String categoryId) {
 
+        try{
+            PostModel postModel = new PostModel();
+            postModel.setTitle(title);
+            postModel.setId(id);
+            postModel.setRating(0);
+            postModel.setApproved(isApproved);
+            postModel.setContent(content);
+            postModel.setDescription(description);
+            CategoryModel categoryModel = new CategoryModel();
+            categoryModel.setId(categoryId);
+            postModel.setCategoryModel(categoryModel);
+
+            postModel.setFileName(postModel.getId() + ".jpg");
+            PostModel updatedPost = postService.updatePost(postModel);
+
+            String fileName = fileStorageService.storeFile(file,updatedPost.getId());
+            postModel.setFileName(fileName);
+
+            return new ResponsePayload(ResponseEnum.OK,updatedPost);
+        }catch (Exception e){
+            return new ResponsePayload(ResponseEnum.BADREQUEST);
+        }
     }
 }

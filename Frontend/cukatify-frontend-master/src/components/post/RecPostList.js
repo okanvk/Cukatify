@@ -1,7 +1,8 @@
 import React from 'react';
 import "./RecPostList.css";
 import { Link } from 'react-router-dom';
-import StarList from "../star/StarList"
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 
 
 const RecPostList = (props) => {
@@ -27,7 +28,7 @@ const RecPostList = (props) => {
                 </div>
                 <div style={{ marginTop: 10 }}>
                     <div className="meta"><span className="date">{post.createdAt}</span></div>
-                    <StarList rating={post.rating}  marginTop = {3}/>
+                    <Rater total={5} rating={post.rating} />
                     <Link to={`/post/${post._id}`} className="ui primary basic button right floated">View Post</Link>
                 </div>
             </div>

@@ -16,6 +16,12 @@ public interface PostService extends ValidationInterface<PostModel> {
 
     PostModel savePost(PostModel postModel);
 
+    PostModel updatePost(PostModel postModel);
+
     Post findPostTotalRating(Post post);
+
+    List<Post> takeAllPostsAllState();
+
+    boolean togglePost(String id);
 
 }

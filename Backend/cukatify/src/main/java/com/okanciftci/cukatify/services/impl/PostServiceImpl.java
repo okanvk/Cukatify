@@ -6,6 +6,7 @@ import com.okanciftci.cukatify.common.ValidationType;
 import com.okanciftci.cukatify.entities.mongo.Category;
 import com.okanciftci.cukatify.entities.mongo.Post;
 import com.okanciftci.cukatify.entities.mongo.Rating;
+import com.okanciftci.cukatify.entities.mongo.User;
 import com.okanciftci.cukatify.models.mongo.PostModel;
 import com.okanciftci.cukatify.persistence.mongo.CategoryRepository;
 import com.okanciftci.cukatify.persistence.mongo.PostRepository;
@@ -14,6 +15,7 @@ import com.okanciftci.cukatify.services.abstr.CategoryService;
 import com.okanciftci.cukatify.services.abstr.PostService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -73,7 +75,30 @@ public class PostServiceImpl implements PostService {
 
         this.categoryRepository.save(category);
 
+        post.setFileName(post.getId() + ".jpg");
+
+        this.postRepository.save(post);
+
         postModel.setId(post.getId());
+
+        return postModel;
+    }
+
+    @Override
+    public PostModel updatePost(PostModel postModel) {
+        Category category = categoryService.findCategoryById(postModel.getCategoryModel().getId());
+
+        Post post = new Post();
+
+        BeanUtils.copyProperties(postModel,post);
+
+        post.addCategory(category);
+
+        category.addPost(post);
+
+        this.postRepository.save(post);
+
+        this.categoryRepository.save(category);
 
         return postModel;
     }
@@ -90,6 +115,24 @@ public class PostServiceImpl implements PostService {
         post.setTotalRating(sumOfRatings / ratingSize);
 
         return post;
+    }
+
+    @Override
+    public List<Post> takeAllPostsAllState() {
+        return postRepository.findAll();
+    }
+
+    @Override
+    public boolean togglePost(String id) {
+        Post post = postRepository.findById(id).orElse(null);
+
+        if(post != null){
+            post.setApproved(!post.isApproved());
+            postRepository.save(post);
+        }else{
+            throw new UsernameNotFoundException("Post not found.");
+        }
+        return true;
     }
 
 
