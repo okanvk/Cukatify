@@ -17,4 +17,5 @@ public class Track {
     private String lyricsUrl;
     private String definition;
     private String fullName;
+    private String listenerEmail;
 }

@@ -49,6 +49,8 @@ public class User implements UserDetails {
 
     private Integer age;
 
+    private String imageUrl;
+
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(pattern="yyyy-MM-dd")

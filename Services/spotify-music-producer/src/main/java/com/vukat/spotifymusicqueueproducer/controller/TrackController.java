@@ -26,8 +26,8 @@ public class TrackController {
     @Autowired
     private TrackService trackService;
 
-    @GetMapping(value = "/enqueue/{token}/{fullName}")
-    public ResponseEntity<?> enqueTrack(@PathVariable String token,@PathVariable String fullName) {
+    @GetMapping(value = "/enqueue/{token}/{fullName}/{username}")
+    public ResponseEntity<?> enqueTrack(@PathVariable String token,@PathVariable String fullName,@PathVariable String username) {
 
         try {
 
@@ -40,6 +40,8 @@ public class TrackController {
             track = trackService.findTrackLyrics(track);
 
             track.setFullName(fullName);
+
+            track.setListenerEmail(username);
 
             producerService.enqueuTrack(track);
 

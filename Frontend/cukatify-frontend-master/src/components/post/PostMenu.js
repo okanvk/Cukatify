@@ -51,7 +51,7 @@ class PostMenu extends Component {
       <div className="eleven wide column">
       <h4 className="ui horizontal divider header basic segment">
       <i className="tag icon"></i>
-    Here is posts on the cukatify
+    Here is posts on the songly
     </h4>
      <hr></hr>
     <Link to = {`/post/add`} className="ui primary button right floated">Add New Post</Link>

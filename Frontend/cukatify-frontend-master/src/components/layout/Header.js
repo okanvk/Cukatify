@@ -100,10 +100,15 @@ class Header extends Component {
                 if (user.scopes.includes("SPOTIFY")) {
                     headerState = userIsSpotifyUser
                 } else {
+                    
                     headerState = userIsAdminUser
                 }
             } else {
+                if (user.scopes.includes("SPOTIFY")) {
+                    headerState = userIsSpotifyUser
+                }else{
                 headerState = userIsNormalUser
+                }
             }
             headerLinks = userIsAuthenticated;
         } else {

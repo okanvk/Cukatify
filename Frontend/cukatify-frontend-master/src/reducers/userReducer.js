@@ -13,6 +13,7 @@ export default (state = initialState,action) => {
                 ...state,
                 users : [...action.payload]
             };
+
         default:
             return state;
     }

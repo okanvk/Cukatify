@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/layout/Header';
 import { BrowserRouter } from 'react-router-dom';
-
+import Footer from './components/layout/Footer'
 import { Provider } from "react-redux";
 import store from "./store";
 import { SET_CURRENT_USER } from "./actions/types";
@@ -44,6 +44,7 @@ class App extends Component {
         <div className="App" >
           <Header />
           <Routes />
+          <Footer />
         </div>
       </BrowserRouter> 
       </Provider>

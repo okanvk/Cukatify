@@ -53,7 +53,7 @@ class UserList extends Component {
       <div className="eleven wide column">
       <h4 className="ui horizontal divider header basic segment">
       <i className="tag icon"></i>
-    Here is users on the cukatify
+    Here is users on the songly
     </h4>
       <table className="ui celled table">
       <thead>

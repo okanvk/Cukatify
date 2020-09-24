@@ -17,14 +17,22 @@ class SpotifyPage extends Component {
     if(window.location.hash){
     var hash = decodeURIComponent(window.location.hash).split("#")[1]
     const promise =this.props.setToken(hash)
-    this.props.getSpotifyRecommendedSongs();
-    this.props.getUsersListeningActivity();
     promise.then(result => {
-      this.props.getCurrentlyListeningSong(result.accessToken,result.fullName)
+      this.props.getCurrentlyListeningSong(result.accessToken,result.fullName,result.sub).then(result => {
+        this.props.getUsersListeningActivity();
+      })
     })
+    this.props.getSpotifyRecommendedSongs();
+    
+   
 
     }
 
+  }
+
+  refreshListeningSong = () => {
+    const {accessToken,fullName,sub} = this.props.user
+    this.props.getCurrentlyListeningSong(accessToken,fullName,sub)
   }
 
   renderRecommendedMusics = () => {
@@ -39,7 +47,7 @@ class SpotifyPage extends Component {
     renderListeningActivity = () => {
       return this.props.listeningActivity.map(song => {
         return (
-          <SpotifyListeningActivityCard key = {song.link} song_name = {song.name} artist_name = {song.artistName} listener = {song.fullName} track_href_play = {song.link}   />
+          <SpotifyListeningActivityCard key = {song.id} listener_email={song.listenerEmail} song_name = {song.name} artist_name = {song.artistName} listener = {song.fullName} track_href_play = {song.link}   />
         )
       })
     }
@@ -73,7 +81,7 @@ class SpotifyPage extends Component {
         <div className="three wide column">
         <h4 className="ui horizontal divider header basic segment">
         <i className="tag icon"></i>
-      Here is the cukatify listening history.
+      Here is the songly listening history.
       </h4>
       {this.renderListeningActivity()}
       </div>
@@ -82,21 +90,25 @@ class SpotifyPage extends Component {
        <i className="tag icon"></i>
      Currently Listening Song
      </h4>
+    
        <CurrentlyListeningSong albumImg = {this.props.listeningSong.albumImg}
        lyrics = {this.props.listeningSong.lyrics}
        definition = {this.props.listeningSong.name}
        spotifyUrl = {this.props.listeningSong.link}
        />
+       <button onClick={() => this.refreshListeningSong()} className="ui blue button">
+       Find Currently Listening Song and Lyrics</button>
       </div>
     )
   }
 
 }
 
-const mapStateToProps = ({ recommenderState,geniusState }) => {
+const mapStateToProps = ({ recommenderState,geniusState,security }) => {
   return { songs: recommenderState.songs,
            listeningSong : geniusState.listeningSong,
-           listeningActivity : geniusState.usersListeningSongs
+           listeningActivity : geniusState.usersListeningSongs,
+           user : security.user
            };
 }
 

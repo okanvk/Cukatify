@@ -1,12 +1,13 @@
 
 import geniusapi from '../api/geniusapi'
-import {GET_CURRENTLY_LISTENING_SONG} from './types'
+import springapi from '../api/springapi'
+import {GET_CURRENTLY_LISTENING_SONG, GET_SPOTIFY_USER} from './types'
 
 
 
-export const getCurrentlyListeningSong = (spotifyToken,email) => async (dispatch) => {
+export const getCurrentlyListeningSong = (spotifyToken,fullName,username) => async (dispatch) => {
     try{
-        const response = await geniusapi.get(`enqueue/${spotifyToken}/${email}`)
+        const response = await geniusapi.get(`enqueue/${spotifyToken}/${fullName}/${username}`)
         dispatch({
             type : GET_CURRENTLY_LISTENING_SONG,
             payload : response.data
@@ -15,3 +16,11 @@ export const getCurrentlyListeningSong = (spotifyToken,email) => async (dispatch
         console.log(err)
     }
 }
+export const getSpotifyUser = () => async dispatch => {
+    const res = await springapi.get("/secureusers/");
+    dispatch({
+      type: GET_SPOTIFY_USER,
+      payload: res.data
+    });
+  };
+  

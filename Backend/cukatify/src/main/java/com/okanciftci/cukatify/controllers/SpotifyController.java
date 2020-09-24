@@ -20,13 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 import static com.okanciftci.cukatify.security.SecurityConstants.TOKEN_PREFIX;
 
@@ -73,16 +67,15 @@ public class SpotifyController {
 
         com.okanciftci.cukatify.entities.mongo.User systemUser = userService.getUser(spotifyUser.getEmail());
 
-
-
         if(systemUser == null){
-            boolean isValid = userService.checkActive(systemUser.getUsername());
-            if(isValid) {
+
                 com.okanciftci.cukatify.entities.mongo.User newSystemUser = new com.okanciftci.cukatify.entities.mongo.User();
 
                 newSystemUser.setUsername(spotifyUser.getEmail());
 
                 newSystemUser.setSpotifyUser(true);
+
+                newSystemUser.setImageUrl(spotifyUser.getImages()[0].getUrl());
 
                 newSystemUser.setAccessToken(token);
 
@@ -119,29 +112,31 @@ public class SpotifyController {
                 }catch (Exception e){
                     return new ResponseEntity(e.getMessage(), HttpStatus.FOUND);
                 }
-            }else{
 
-                return ResponseEntity.badRequest().body(false);
-            }
-        }else{
+        }else {
+            boolean isValid = userService.checkActive(systemUser.getUsername());
+            if (isValid) {
                 systemUser.setAccessToken(token);
-            try {
-                Authentication authentication = authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(
-                                systemUser.getUsername(),
-                                SpotifyLoginHelper.staticPass
-                        )
-                );
+                try {
+                    Authentication authentication = authenticationManager.authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    systemUser.getUsername(),
+                                    SpotifyLoginHelper.staticPass
+                            )
+                    );
 
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
 
-                String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication,token,systemUser.getFullName());
+                    String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication, token, systemUser.getFullName());
 
-                HttpHeaders headers = new HttpHeaders();
-                headers.add("Location", "http://localhost:3000/spotify#"+jwt);
-                return new ResponseEntity(headers, HttpStatus.FOUND);
-            }catch (Exception e){
-                return new ResponseEntity(e.getMessage(), HttpStatus.FOUND);
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.add("Location", "http://localhost:3000/spotify#" + jwt);
+                    return new ResponseEntity(headers, HttpStatus.FOUND);
+                } catch (Exception e) {
+                    return new ResponseEntity(e.getMessage(), HttpStatus.FOUND);
+                }
+            }else{
+                return new ResponseEntity(false, HttpStatus.BAD_REQUEST);
             }
         }
     }

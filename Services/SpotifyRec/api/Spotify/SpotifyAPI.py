@@ -118,7 +118,7 @@ class SpotifyAPIAccess:
         user_id = self.get_user_id(token)
 
         r = requests.post(f"https://api.spotify.com/v1/users/{user_id}/playlists",
-                         data=json.dumps({"name" : "Cukatify Recommender System Playlist","public":False,"description" : "Thanks for using Cukatify"}),
+                         data=json.dumps({"name" : "Songly Recommender System Playlist","public":False,"description" : "Thanks for using Songly"}),
                          headers={"Authorization": f"Bearer {token}"});
 
         playlist_id = r.json()['id']
