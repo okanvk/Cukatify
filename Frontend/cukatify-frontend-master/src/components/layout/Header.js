@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { connect } from "react-redux";
+import logo from '../../components/logo192.png'; 
+
 import { logout } from "../../actions/securityActions";
 
 
@@ -61,7 +63,7 @@ class Header extends Component {
                 </li>
                 
                 <li>
-                    <NavLink to="/post/list" exact activeClassName="active-link">
+                    <NavLink to="/spotify" exact activeClassName="active-link">
                         Spotify Page
                     </NavLink>
                 </li>
@@ -69,8 +71,8 @@ class Header extends Component {
 
             </ul>
         )
-        /* SPOTIFY NAVIGATION CHECK */
 
+        
         const userIsAdminUser = (
             <ul>
                 <li>
@@ -121,6 +123,7 @@ class Header extends Component {
             <div className="width_header">
                 <div className="ui inverted segment ">
                     <div className="ui inverted secondary menu">
+                    <img src={logo} style={{marginRight: 10}} alt="" width={36} height={36}/>
                         <nav>
                             {headerState}
 

@@ -31,10 +31,24 @@ public class Track {
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime createdAt;
 
 
-    public void initDate() { this.createdAt = LocalDateTime.now(); }
+    public void initDate() {
+        this.createdAt = LocalDateTime.now();
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        Track track = (Track) obj;
+        if (this.getName().equals(track.getName()))
+            return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.name.hashCode();
+    }
 }

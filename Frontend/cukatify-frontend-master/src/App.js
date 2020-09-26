@@ -43,8 +43,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App" >
           <Header />
-          <Routes />
-          <Footer />
+          <Routes />          
         </div>
       </BrowserRouter> 
       </Provider>

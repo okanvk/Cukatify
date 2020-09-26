@@ -8,6 +8,7 @@ import { setToken } from '../../actions/securityActions'
 import { Redirect } from 'react-router-dom'
 import {getSpotifyRecommendedSongs,getUsersListeningActivity} from '../../actions/recommenderActions'
 import {getCurrentlyListeningSong} from '../../actions/geniusActions'
+import Login from '../auth/Login';
 
 class SpotifyPage extends Component {
 
@@ -23,10 +24,24 @@ class SpotifyPage extends Component {
       })
     })
     this.props.getSpotifyRecommendedSongs();
-    
-   
+    }else{
+
+      const token = localStorage.getItem("jwtToken");
+      if(token != null){
+        const promise =this.props.setToken(token)
+        promise.then(result => {
+          this.props.getCurrentlyListeningSong(result.accessToken,result.fullName,result.sub).then(result => {
+            this.props.getUsersListeningActivity();
+          })
+        })
+        this.props.getSpotifyRecommendedSongs();
+      }
 
     }
+   /* if(!this.props.user.scopes.includes("SPOTIFY")){
+      this.props.history.push("/post/list")
+ 
+    }*/
 
   }
 
@@ -54,11 +69,6 @@ class SpotifyPage extends Component {
 
   render() {
 
-    if(!window.location.hash){
-      return <Redirect
-            to="/login"
-            />;
-    }
   
 
     return (

@@ -21,7 +21,8 @@ class SearchBar extends Component {
 
         if(!this.state.keyword)
             return;
-
+        
+        
         const artistName =  this.mapArtistNameToResourceName(this.state.keyword)
 
 
@@ -30,7 +31,7 @@ class SearchBar extends Component {
     } 
 
     mapArtistNameToResourceName = (artistName) => {
-        return artistName.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('_')
+        return artistName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('_')
     }
 
 

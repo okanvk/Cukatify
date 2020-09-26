@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface TrackRepository extends MongoRepository<Track,String> {
 
-    List<Track> findTop5ByOrderByCreatedAtDesc();
+    List<Track> findByOrderByCreatedAtDesc();
+
+
+
 }

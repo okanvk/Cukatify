@@ -18,57 +18,65 @@ import java.util.Arrays;
 public class SparQLArtistKAOImpl implements SparQLArtistKAO {
 
     @Override
-    public Artist findByName(String artistName)  throws ArtistNotFoundException{
-
-        String queryStr = "prefix dbpedia-owl:<http://dbpedia.org/ontology/>\n" +
-                "\n" +
-                "SELECT ?page ?abstract ?imageUrl ?relatedTopic\n" +
-                "WHERE {\n" +
-                "    <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:wikiPageExternalLink ?page.\n" +
-                "    <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:abstract?abstract.\n" +
-                "    <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:thumbnail ?imageUrl.\n" +
-                "   OPTIONAL { <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:associatedBand ?relatedTopic. } \n"  +
-                "\n" +
-                "FILTER (lang(?abstract) = 'en')\n" +
-                "}";
+    public Artist findByName(String artistName)  throws ArtistNotFoundException {
 
 
-        Query query = QueryFactory.create(queryStr);
+        while (true) {
+            String queryStr = "prefix dbpedia-owl:<http://dbpedia.org/ontology/>\n" +
+                    "\n" +
+                    "SELECT ?page ?abstract ?imageUrl ?relatedTopic\n" +
+                    "WHERE {\n" +
+                    "    <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:wikiPageExternalLink ?page.\n" +
+                    "    <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:abstract?abstract.\n" +
+                    "    OPTIONAL { <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:thumbnail ?imageUrl. } \n" +
+                    "   OPTIONAL { <http://dbpedia.org/resource/"+ artistName + "> dbpedia-owl:associatedBand ?relatedTopic. } \n"  +
+                    "\n" +
+                    "FILTER (lang(?abstract) = 'en')\n" +
 
-        try ( QueryExecution qexec = QueryExecutionFactory.sparqlService("http://dbpedia.org/sparql", query) ) {
-            ((QueryEngineHTTP)qexec).addParam("timeout", "10000") ;
+                    "}";
 
-            ResultSet rs = qexec.execSelect();
-            QuerySolution solution = rs.next();
 
-            Artist artist = new Artist();
-            artist.setId(artistName);
-            artist.setName(artistName);
-            if(solution.contains("page")) {
-                artist.setPage(solution.getResource("page").toString());
-            }
-            artist.setDescription(solution.getLiteral("abstract").toString());
-            if(solution.contains("imageUrl")) {
-                artist.setImageUrl(solution.getResource("imageUrl").toString());
-            }
-            String artistResource = "";
-            if(solution.contains("relatedTopic")) {
-                artistResource = solution.getResource("relatedTopic").toString();
-                addRelatedThing(artistResource,artist);
-                while(rs.hasNext()){
-                    artistResource = rs.next().getResource("relatedTopic").toString();
-                    addRelatedThing(artistResource,artist);
+            Query query = QueryFactory.create(queryStr);
+
+            try ( QueryExecution qexec = QueryExecutionFactory.sparqlService("http://dbpedia.org/sparql", query) ) {
+                ((QueryEngineHTTP)qexec).addParam("timeout", "10000") ;
+
+                ResultSet rs = qexec.execSelect();
+                QuerySolution solution = rs.next();
+
+                Artist artist = new Artist();
+                artist.setId(artistName);
+                artist.setName(artistName);
+                if(solution.contains("page")) {
+                    artist.setPage(solution.getResource("page").toString());
                 }
+                artist.setDescription(solution.getLiteral("abstract").toString());
+                if(solution.contains("imageUrl")) {
+                    artist.setImageUrl(solution.getResource("imageUrl").toString());
+                }
+                String artistResource = "";
+                if(solution.contains("relatedTopic")) {
+                    artistResource = solution.getResource("relatedTopic").toString();
+                    addRelatedThing(artistResource,artist);
+                    while(rs.hasNext()){
+                        artistResource = rs.next().getResource("relatedTopic").toString();
+                        addRelatedThing(artistResource,artist);
+                    }
+                }
+
+
+
+                return artist;
+
+            } catch (Exception e) {
+                if(artistName.contains("_(singer)")){
+                    throw new ArtistNotFoundException("Artist not found");
+                }
+                artistName += "_(singer)";
+                continue;
             }
 
-
-
-            return artist;
-
-        } catch (Exception e) {
-            throw new ArtistNotFoundException(artistName);
         }
-
     }
 
     private void addRelatedThing(String url,Artist artist){

@@ -1,40 +1,40 @@
-2020-09-24 03:32:14,073 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Starting CukatifyApplication on okan-mbp.zte.com.cn with PID 23157 (/Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify/target/classes started by okanciftci in /Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify)
-2020-09-24 03:32:14,082 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-09-24 03:32:14,225 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-09-24 03:32:14,227 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-09-24 03:32:14,977 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-24 03:32:14,977 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-24 03:32:14,998 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
-2020-09-24 03:32:15,163 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-24 03:32:15,163 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-09-24 03:32:15,221 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.redis.ActorRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
-2020-09-24 03:32:15,245 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 81ms. Found 5 MongoDB repository interfaces.
-2020-09-24 03:32:15,255 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-24 03:32:15,255 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-24 03:32:15,266 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-2020-09-24 03:32:15,266 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.PostRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-2020-09-24 03:32:15,267 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RatingRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-2020-09-24 03:32:15,268 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-2020-09-24 03:32:15,269 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-2020-09-24 03:32:15,278 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 22ms. Found 1 Redis repository interfaces.
-2020-09-24 03:32:15,664 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,667 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,671 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6b6fb4c0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,672 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,678 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,678 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,679 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-09-24 03:32:15,968 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8090 (http)
-2020-09-24 03:32:15,977 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
-2020-09-24 03:32:15,977 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-09-24 03:32:16,045 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-09-24 03:32:16,045 INFO org.springframework.web.context.ContextLoader [restartedMain] Root WebApplicationContext: initialization completed in 1818 ms
-2020-09-24 03:32:16,377 INFO org.mongodb.driver.cluster [restartedMain] Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2020-09-24 03:32:16,377 INFO org.mongodb.driver.cluster [restartedMain] Adding discovered server localhost:27017 to client view of cluster
-2020-09-24 03:32:16,425 INFO org.mongodb.driver.connection [cluster-ClusterId{value='5f6be9104dc7ea6359c65716', description='null'}-localhost:27017] Opened connection [connectionId{localValue:1, serverValue:410}] to localhost:27017
-2020-09-24 03:32:16,429 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6be9104dc7ea6359c65716', description='null'}-localhost:27017] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 7]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2468426}
-2020-09-24 03:32:16,430 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6be9104dc7ea6359c65716', description='null'}-localhost:27017] Discovered cluster type of STANDALONE
-2020-09-24 03:32:16,643 WARN org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator [restartedMain] Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+2020-09-26 09:17:47,139 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Starting CukatifyApplication on okan-MBP with PID 31485 (/Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify/target/classes started by okanciftci in /Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify)
+2020-09-26 09:17:47,166 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-09-26 09:17:47,243 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-26 09:17:47,243 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-26 09:17:48,205 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 09:17:48,206 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-26 09:17:48,228 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 5ms. Found 0 Redis repository interfaces.
+2020-09-26 09:17:48,384 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 09:17:48,385 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-09-26 09:17:48,437 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.redis.ActorRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+2020-09-26 09:17:48,460 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 75ms. Found 5 MongoDB repository interfaces.
+2020-09-26 09:17:48,469 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 09:17:48,470 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-26 09:17:48,479 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 09:17:48,479 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.PostRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 09:17:48,480 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RatingRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 09:17:48,480 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 09:17:48,481 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 09:17:48,488 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 18ms. Found 1 Redis repository interfaces.
+2020-09-26 09:17:48,872 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:48,875 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:48,879 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2de46fee' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:48,881 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:48,890 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:48,890 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:48,891 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 09:17:49,325 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8090 (http)
+2020-09-26 09:17:49,337 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-09-26 09:17:49,337 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-09-26 09:17:49,411 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-09-26 09:17:49,411 INFO org.springframework.web.context.ContextLoader [restartedMain] Root WebApplicationContext: initialization completed in 2168 ms
+2020-09-26 09:17:49,708 INFO org.mongodb.driver.cluster [restartedMain] Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-09-26 09:17:49,709 INFO org.mongodb.driver.cluster [restartedMain] Adding discovered server localhost:27017 to client view of cluster
+2020-09-26 09:17:49,751 INFO org.mongodb.driver.connection [cluster-ClusterId{value='5f6edd0d9180ca03cc4a0378', description='null'}-localhost:27017] Opened connection [connectionId{localValue:1, serverValue:463}] to localhost:27017
+2020-09-26 09:17:49,754 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6edd0d9180ca03cc4a0378', description='null'}-localhost:27017] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 7]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2302840}
+2020-09-26 09:17:49,755 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6edd0d9180ca03cc4a0378', description='null'}-localhost:27017] Discovered cluster type of STANDALONE
+2020-09-26 09:17:49,944 WARN org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator [restartedMain] Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
 	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
 	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
 
@@ -49,122 +49,404 @@
 	> }
 	> -----------------------------------------------------------------------------------------
 
-2020-09-24 03:32:16,679 INFO org.mongodb.driver.connection [restartedMain] Opened connection [connectionId{localValue:2, serverValue:411}] to localhost:27017
-2020-09-24 03:32:16,916 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2020-09-24 03:32:17,655 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6959a39f, org.springframework.security.web.context.SecurityContextPersistenceFilter@76735e70, org.springframework.security.web.header.HeaderWriterFilter@6c414790, org.springframework.web.filter.CorsFilter@d9ed309, org.springframework.security.web.authentication.logout.LogoutFilter@32386220, com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter@31074226, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@121b17e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@579f0ab0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20d09a3d, org.springframework.security.web.session.SessionManagementFilter@2685b64a, org.springframework.security.web.access.ExceptionTranslationFilter@6d1f6bc9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c60d37c]
-2020-09-24 03:32:17,710 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-24 03:32:17,942 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8090 (http) with context path ''
-2020-09-24 03:32:17,944 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Started CukatifyApplication in 4.64 seconds (JVM running for 5.567)
-2020-09-24 03:33:25,944 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-24 03:33:25,944 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Initializing Servlet 'dispatcherServlet'
-2020-09-24 03:33:25,952 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Completed initialization in 8 ms
-2020-09-24 03:33:25,984 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] couldn't find bearer string, will ignore the header
-2020-09-24 03:33:33,043 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
-2020-09-24 03:33:33,515 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-2] Expires in: 3600
-2020-09-24 03:39:15,805 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
-2020-09-24 03:39:16,049 ERROR com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-5] Error: Invalid authorization code
-2020-09-24 03:39:16,399 ERROR com.okanciftci.cukatify.spotify.impl.SpotifyAPIServiceImpl [http-nio-8090-exec-5] Error: Invalid access token
-2020-09-24 03:39:16,412 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8090-exec-5] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.okanciftci.cukatify.controllers.SpotifyController.accessSpotifyPageWithCallback(SpotifyController.java:68)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:68)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2020-09-24 03:39:17,984 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user face1247@hotmail.com, setting security context
-2020-09-24 03:39:18,260 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] couldn't find bearer string, will ignore the header
-2020-09-24 03:39:18,364 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-8] Expires in: 3600
-2020-09-24 03:43:26,041 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
-2020-09-24 03:43:26,329 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] couldn't find bearer string, will ignore the header
-2020-09-24 03:43:26,698 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-3] Expires in: 3600
-2020-09-24 03:49:16,472 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
-2020-09-24 03:49:16,786 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
-2020-09-24 03:49:17,013 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-7] Expires in: 3600
-2020-09-24 13:14:51,941 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-24 13:14:52,066 INFO org.mongodb.driver.connection [SpringContextShutdownHook] Closed connection [connectionId{localValue:2, serverValue:411}] to localhost:27017 because the pool has been closed.
+2020-09-26 09:17:49,976 INFO org.mongodb.driver.connection [restartedMain] Opened connection [connectionId{localValue:2, serverValue:464}] to localhost:27017
+2020-09-26 09:17:50,242 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-09-26 09:17:51,230 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bcbc2ac, org.springframework.security.web.context.SecurityContextPersistenceFilter@2594a519, org.springframework.security.web.header.HeaderWriterFilter@5e58c130, org.springframework.web.filter.CorsFilter@75c0e690, org.springframework.security.web.authentication.logout.LogoutFilter@687b9ade, com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter@14871d68, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@319bd893, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e91266f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f2b0112, org.springframework.security.web.session.SessionManagementFilter@5b31e1a6, org.springframework.security.web.access.ExceptionTranslationFilter@78673ded, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2a96309]
+2020-09-26 09:17:51,303 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-26 09:17:51,509 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-26 09:17:51,512 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Started CukatifyApplication in 4.886 seconds (JVM running for 5.864)
+2020-09-26 09:20:27,141 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-26 09:20:27,141 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-09-26 09:20:27,150 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Completed initialization in 9 ms
+2020-09-26 09:20:27,185 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] couldn't find bearer string, will ignore the header
+2020-09-26 09:20:31,521 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 09:20:32,059 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-2] Expires in: 3600
+2020-09-26 09:21:06,241 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 09:21:22,708 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 09:21:22,751 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 09:21:29,803 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 09:21:29,939 INFO io.lettuce.core.EpollProvider [http-nio-8090-exec-10] Starting without optional epoll library
+2020-09-26 09:21:29,941 INFO io.lettuce.core.KqueueProvider [http-nio-8090-exec-10] Starting without optional kqueue library
+2020-09-26 09:21:34,082 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 09:21:34,107 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 09:47:59,381 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 09:47:59,569 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:01,310 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:01,344 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:38,875 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:40,487 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:47,971 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:50,679 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:48:52,204 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:49:35,681 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:49:37,586 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:49:41,517 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:49:42,677 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:49:55,912 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:50:23,668 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:50:32,434 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:50:39,584 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:50:52,359 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:51:43,427 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:54:46,727 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 09:54:54,489 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:00:20,430 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:15:57,441 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
+2020-09-26 10:15:57,880 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
+2020-09-26 10:15:58,231 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-6] Expires in: 3600
+2020-09-26 10:42:50,316 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] couldn't find bearer string, will ignore the header
+2020-09-26 10:42:50,440 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:08,805 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:08,919 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:09,699 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:09,727 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:11,985 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:12,836 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:23,416 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:25,254 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:43:33,310 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 10:44:55,161 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
+2020-09-26 10:44:55,277 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:45:12,323 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:45:13,558 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:45:14,448 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:45:40,486 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:45:56,517 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:46:49,296 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:49:01,579 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:49:06,668 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:49:07,872 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:49:09,600 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:49:13,398 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:50:10,046 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:50:18,096 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:50:19,632 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:50:21,631 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:51:01,799 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:51:12,212 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:51:41,314 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:51:44,028 ERROR com.okanciftci.cukatify.ontology.impl.SparQLArtistKAOImpl [http-nio-8090-exec-10] QueryIterPlainWrapper
+2020-09-26 10:51:44,304 ERROR com.okanciftci.cukatify.ontology.impl.SparQLArtistKAOImpl [http-nio-8090-exec-10] QueryIterPlainWrapper
+2020-09-26 10:51:45,455 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:52:36,768 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:52:55,119 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:53:33,784 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:53:33,880 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:53:45,308 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:53:45,309 INFO org.mongodb.driver.connection [http-nio-8090-exec-10] Opened connection [connectionId{localValue:3, serverValue:508}] to localhost:27017
+2020-09-26 10:53:45,310 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:53:48,652 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 10:54:17,714 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 10:54:27,901 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] couldn't find bearer string, will ignore the header
+2020-09-26 10:54:28,237 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-3] Expires in: 3600
+2020-09-26 10:56:47,985 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:02:21,025 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:03:22,950 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:06:30,354 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] couldn't find bearer string, will ignore the header
+2020-09-26 11:06:30,685 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
+2020-09-26 11:06:31,012 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-5] Expires in: 3600
+2020-09-26 11:07:18,925 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
+2020-09-26 11:07:26,025 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 11:07:26,172 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-7] Expires in: 3600
+2020-09-26 11:09:53,817 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:13:44,116 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] couldn't find bearer string, will ignore the header
+2020-09-26 11:13:44,231 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:13:50,931 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:13:55,656 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:13:56,804 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:14:38,719 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:14:42,011 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:15:04,712 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:15:36,514 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:15:57,347 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:32:38,711 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 11:32:45,029 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] couldn't find bearer string, will ignore the header
+2020-09-26 11:32:45,349 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-8] Expires in: 3600
+2020-09-26 11:33:35,408 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:38:16,253 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] couldn't find bearer string, will ignore the header
+2020-09-26 11:38:16,372 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:38:22,290 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:38:46,103 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:38:55,296 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:38:56,743 ERROR com.okanciftci.cukatify.ontology.impl.SparQLArtistKAOImpl [http-nio-8090-exec-9] QueryIterPlainWrapper
+2020-09-26 11:38:56,958 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:39:48,095 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:39:48,212 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:39:58,941 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:39:59,585 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:40:00,491 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:40:02,739 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:40:10,244 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:40:10,246 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:40:28,157 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:41:35,578 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:41:38,712 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:41:57,445 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:41:59,589 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:43:03,856 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 11:43:21,195 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 11:43:21,344 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 11:43:27,739 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 11:43:35,880 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 11:43:37,691 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 11:44:11,021 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
+2020-09-26 11:44:11,361 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
+2020-09-26 11:44:11,697 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-6] Expires in: 3600
+2020-09-26 11:45:37,559 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:45:37,586 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:45:43,032 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:45:43,032 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:49:32,675 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:49:39,417 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 11:50:31,693 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] couldn't find bearer string, will ignore the header
+2020-09-26 11:50:32,099 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] couldn't find bearer string, will ignore the header
+2020-09-26 11:50:32,418 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-9] Expires in: 3600
+2020-09-26 11:51:16,697 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 12:41:43,959 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] couldn't find bearer string, will ignore the header
+2020-09-26 12:41:51,014 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
+2020-09-26 12:41:51,353 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-5] Expires in: 3600
+2020-09-26 12:43:26,848 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 12:45:35,390 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 12:45:35,420 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 12:45:41,310 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] couldn't find bearer string, will ignore the header
+2020-09-26 12:45:41,424 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:45:49,471 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:45:50,858 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:45:53,602 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:45:56,441 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:46:02,696 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:46:13,819 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:46:48,822 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:46:50,279 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:46:53,078 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:46:56,476 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:47:08,035 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:47:27,577 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 12:47:48,771 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] couldn't find bearer string, will ignore the header
+2020-09-26 12:47:48,883 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:47:58,739 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:03,213 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:03,271 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:11,813 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:12,854 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:12,950 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:52,258 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:52,258 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:48:54,547 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 12:49:12,638 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 12:49:12,971 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] couldn't find bearer string, will ignore the header
+2020-09-26 12:49:13,274 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-4] Expires in: 3600
+2020-09-26 12:50:24,317 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:24:49,546 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] couldn't find bearer string, will ignore the header
+2020-09-26 13:24:50,245 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] couldn't find bearer string, will ignore the header
+2020-09-26 13:24:50,550 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-1] Expires in: 3600
+2020-09-26 13:26:08,463 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:28:01,107 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:28:01,134 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:28:08,600 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 13:28:08,710 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:28:17,982 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:28:21,089 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:28:34,092 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:29:43,305 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:29:54,821 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:30:09,462 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:30:13,281 ERROR com.okanciftci.cukatify.ontology.impl.SparQLArtistKAOImpl [http-nio-8090-exec-5] QueryIterPlainWrapper
+2020-09-26 13:30:13,324 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:30:39,698 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
+2020-09-26 13:30:39,812 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:30:54,624 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:30:54,688 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:30:55,869 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:30:55,907 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:31:01,826 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:46,631 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 13:55:46,777 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:50,195 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:50,255 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:50,869 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:50,897 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:53,347 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:55:53,381 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:56:03,680 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user TobyReinold@gmail.com, setting security context
+2020-09-26 13:56:13,748 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] couldn't find bearer string, will ignore the header
+2020-09-26 13:56:14,180 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] couldn't find bearer string, will ignore the header
+2020-09-26 13:56:14,522 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-9] Expires in: 3600
+2020-09-26 13:56:35,119 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:07,159 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:14,587 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:31,120 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:44,900 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:51,199 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:51,230 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 13:57:57,187 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 13:57:57,312 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:07,781 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
+2020-09-26 13:58:07,905 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:12,059 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:12,901 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:13,894 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:15,527 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:17,278 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:19,161 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:20,467 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:58:30,625 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:59:02,526 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 13:59:02,640 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:13:56,508 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 15:13:56,625 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-9] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:13:59,461 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:05,653 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:08,450 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:37,897 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:40,880 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:41,510 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:42,416 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:14:54,599 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:15:10,459 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user ayca2@gmail.com, setting security context
+2020-09-26 15:15:21,784 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] couldn't find bearer string, will ignore the header
+2020-09-26 15:15:26,105 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] couldn't find bearer string, will ignore the header
+2020-09-26 15:15:26,513 INFO com.okanciftci.cukatify.spotify.SpotifyLoginHelper [http-nio-8090-exec-8] Expires in: 3600
+2020-09-26 15:15:52,361 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:16,759 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:16,781 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:19,949 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:19,949 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-7] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:21,420 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-8] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:22,611 INFO com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-10] authenticated user face1247@hotmail.com, setting security context
+2020-09-26 15:17:26,440 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] couldn't find bearer string, will ignore the header
+2020-09-26 15:17:29,316 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 15:17:34,089 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-4] couldn't find bearer string, will ignore the header
+2020-09-26 15:17:40,952 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-5] couldn't find bearer string, will ignore the header
+2020-09-26 15:18:51,149 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-6] couldn't find bearer string, will ignore the header
+2020-09-26 15:19:14,920 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-26 15:19:15,064 INFO org.mongodb.driver.connection [SpringContextShutdownHook] Closed connection [connectionId{localValue:3, serverValue:508}] to localhost:27017 because the pool has been closed.
+2020-09-26 15:19:15,064 INFO org.mongodb.driver.connection [SpringContextShutdownHook] Closed connection [connectionId{localValue:2, serverValue:464}] to localhost:27017 because the pool has been closed.
+2020-09-26 15:19:17,945 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Starting CukatifyApplication on okan-MBP with PID 33784 (/Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify/target/classes started by okanciftci in /Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify)
+2020-09-26 15:19:17,947 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-09-26 15:19:17,993 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-26 15:19:17,993 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-26 15:19:18,463 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 15:19:18,463 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-26 15:19:18,478 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
+2020-09-26 15:19:18,614 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 15:19:18,614 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-09-26 15:19:18,666 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.redis.ActorRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+2020-09-26 15:19:18,685 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 70ms. Found 5 MongoDB repository interfaces.
+2020-09-26 15:19:18,692 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 15:19:18,693 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-26 15:19:18,701 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:19:18,701 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.PostRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:19:18,702 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RatingRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:19:18,702 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:19:18,703 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:19:18,709 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 16ms. Found 1 Redis repository interfaces.
+2020-09-26 15:19:18,960 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:18,963 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:18,965 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@62f32c1' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:18,966 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:18,971 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:18,971 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:18,972 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:19:19,219 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8090 (http)
+2020-09-26 15:19:19,226 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-09-26 15:19:19,227 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-09-26 15:19:19,283 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-09-26 15:19:19,284 INFO org.springframework.web.context.ContextLoader [restartedMain] Root WebApplicationContext: initialization completed in 1291 ms
+2020-09-26 15:19:19,561 INFO org.mongodb.driver.cluster [restartedMain] Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-09-26 15:19:19,561 INFO org.mongodb.driver.cluster [restartedMain] Adding discovered server localhost:27017 to client view of cluster
+2020-09-26 15:19:19,601 INFO org.mongodb.driver.connection [cluster-ClusterId{value='5f6f31c7099598708cf7d1c3', description='null'}-localhost:27017] Opened connection [connectionId{localValue:1, serverValue:510}] to localhost:27017
+2020-09-26 15:19:19,604 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6f31c7099598708cf7d1c3', description='null'}-localhost:27017] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 7]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2129002}
+2020-09-26 15:19:19,605 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6f31c7099598708cf7d1c3', description='null'}-localhost:27017] Discovered cluster type of STANDALONE
+2020-09-26 15:19:19,766 WARN org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator [restartedMain] Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2020-09-26 15:19:19,793 INFO org.mongodb.driver.connection [restartedMain] Opened connection [connectionId{localValue:2, serverValue:511}] to localhost:27017
+2020-09-26 15:19:19,987 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-09-26 15:19:20,579 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d46e138, org.springframework.security.web.context.SecurityContextPersistenceFilter@325a17b1, org.springframework.security.web.header.HeaderWriterFilter@660d5b3f, org.springframework.web.filter.CorsFilter@185bbcf7, org.springframework.security.web.authentication.logout.LogoutFilter@31ad72a8, com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter@467024d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50476d3c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65e2c250, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ab288ec, org.springframework.security.web.session.SessionManagementFilter@7283acfa, org.springframework.security.web.access.ExceptionTranslationFilter@75e53e02, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65a1958d]
+2020-09-26 15:19:20,634 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-26 15:19:20,826 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-26 15:19:20,828 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Started CukatifyApplication in 3.165 seconds (JVM running for 3.805)
+2020-09-26 15:21:46,807 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-26 15:21:46,808 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-09-26 15:21:46,814 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Completed initialization in 6 ms
+2020-09-26 15:21:46,842 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] couldn't find bearer string, will ignore the header
+2020-09-26 15:22:00,733 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-26 15:22:00,848 INFO org.mongodb.driver.connection [SpringContextShutdownHook] Closed connection [connectionId{localValue:2, serverValue:511}] to localhost:27017 because the pool has been closed.
+2020-09-26 15:22:02,946 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Starting CukatifyApplication on okan-MBP with PID 33801 (/Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify/target/classes started by okanciftci in /Users/okanciftci/Desktop/cukatify-fork/Cukatify/Backend/cukatify)
+2020-09-26 15:22:02,948 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-09-26 15:22:02,993 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-26 15:22:02,993 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-26 15:22:03,515 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 15:22:03,516 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-26 15:22:03,534 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 6ms. Found 0 Redis repository interfaces.
+2020-09-26 15:22:03,664 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 15:22:03,664 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-09-26 15:22:03,713 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.redis.ActorRepository. If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository.
+2020-09-26 15:22:03,731 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 66ms. Found 5 MongoDB repository interfaces.
+2020-09-26 15:22:03,739 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-26 15:22:03,739 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-26 15:22:03,747 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.CategoryRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:22:03,747 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.PostRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:22:03,748 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RatingRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:22:03,749 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:22:03,749 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.okanciftci.cukatify.persistence.mongo.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-26 15:22:03,756 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 16ms. Found 1 Redis repository interfaces.
+2020-09-26 15:22:03,993 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:03,995 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:03,998 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4433f902' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:04,000 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:04,005 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration' of type [org.springframework.security.config.annotation.method.configuration.Jsr250MetadataSourceConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:04,005 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'jsr250MethodSecurityMetadataSource' of type [org.springframework.security.access.annotation.Jsr250MethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:04,006 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-09-26 15:22:04,235 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8090 (http)
+2020-09-26 15:22:04,241 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-09-26 15:22:04,241 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-09-26 15:22:04,297 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-09-26 15:22:04,297 INFO org.springframework.web.context.ContextLoader [restartedMain] Root WebApplicationContext: initialization completed in 1303 ms
+2020-09-26 15:22:04,587 INFO org.mongodb.driver.cluster [restartedMain] Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-09-26 15:22:04,587 INFO org.mongodb.driver.cluster [restartedMain] Adding discovered server localhost:27017 to client view of cluster
+2020-09-26 15:22:04,625 INFO org.mongodb.driver.connection [cluster-ClusterId{value='5f6f326ce0441d75ccad3426', description='null'}-localhost:27017] Opened connection [connectionId{localValue:1, serverValue:512}] to localhost:27017
+2020-09-26 15:22:04,628 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6f326ce0441d75ccad3426', description='null'}-localhost:27017] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 7]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2064609}
+2020-09-26 15:22:04,629 INFO org.mongodb.driver.cluster [cluster-ClusterId{value='5f6f326ce0441d75ccad3426', description='null'}-localhost:27017] Discovered cluster type of STANDALONE
+2020-09-26 15:22:04,791 WARN org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator [restartedMain] Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2020-09-26 15:22:04,817 INFO org.mongodb.driver.connection [restartedMain] Opened connection [connectionId{localValue:2, serverValue:513}] to localhost:27017
+2020-09-26 15:22:05,006 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-09-26 15:22:05,585 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d164f82, org.springframework.security.web.context.SecurityContextPersistenceFilter@57fd32ef, org.springframework.security.web.header.HeaderWriterFilter@557c5943, org.springframework.web.filter.CorsFilter@2c8bab89, org.springframework.security.web.authentication.logout.LogoutFilter@4cc5aafc, com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter@571f7fa5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58e6383a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ce0cc1d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7452c04e, org.springframework.security.web.session.SessionManagementFilter@1313e133, org.springframework.security.web.access.ExceptionTranslationFilter@1e14b435, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@48a6205e]
+2020-09-26 15:22:05,638 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-26 15:22:05,822 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8090 (http) with context path ''
+2020-09-26 15:22:05,824 INFO com.okanciftci.cukatify.CukatifyApplication [restartedMain] Started CukatifyApplication in 3.133 seconds (JVM running for 3.766)
+2020-09-26 15:22:12,225 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-26 15:22:12,225 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-09-26 15:22:12,232 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8090-exec-1] Completed initialization in 6 ms
+2020-09-26 15:22:12,260 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-1] couldn't find bearer string, will ignore the header
+2020-09-26 15:22:35,323 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-2] couldn't find bearer string, will ignore the header
+2020-09-26 15:22:45,209 WARN com.okanciftci.cukatify.security.jwt.JwtAuthenticationFilter [http-nio-8090-exec-3] couldn't find bearer string, will ignore the header
+2020-09-26 15:24:02,291 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-26 15:24:02,405 INFO org.mongodb.driver.connection [SpringContextShutdownHook] Closed connection [connectionId{localValue:2, serverValue:513}] to localhost:27017 because the pool has been closed.

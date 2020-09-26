@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin
@@ -24,8 +25,16 @@ public class ArtistController {
     @RequestMapping(value = "/findArtistByName/{name}", method = RequestMethod.GET)
     public ResponseEntity<?> findArtistByName (@PathVariable String name) {
 
-        Artist artist = artistService.bringArtist(name);
-        return new ResponseEntity(artist, HttpStatus.OK);
+       try{
+           String finalName = "";
+           for(String token : name.split("_")){
+               finalName += token.substring(0,1).toUpperCase() + token.substring(1) + "_";
+           }
+           Artist artist = artistService.bringArtist(name.substring(0,finalName.length() -1));
+           return new ResponseEntity(artist, HttpStatus.OK);
+       }catch (Exception e){
+           return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+       }
 
     }
 
