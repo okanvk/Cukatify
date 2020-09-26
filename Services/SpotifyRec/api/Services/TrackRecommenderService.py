@@ -102,6 +102,6 @@ class TrackRecommender:
                     recommended_songs.append(selected_track)
                     track_map.append(id)
 
-        #self.spotify_api.create_playlist(token, list(set(track_uris)))
+        self.spotify_api.create_playlist(token, list(set(track_uris)))
 
         return recommended_songs
