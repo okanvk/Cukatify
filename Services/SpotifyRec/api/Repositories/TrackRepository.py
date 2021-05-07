@@ -4,7 +4,6 @@ from pymongo import MongoClient
 class TrackRepository:
 
     def __init__(self):
-        client = MongoClient()
         client = MongoClient('localhost', 27017)
         db = client.cukatify
         self.track_collection = db.Track
